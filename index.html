@@ -1,0 +1,75 @@
+import React from "react";
+import { Card, CardContent } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { motion } from "framer-motion";
+
+export default function PortfolioPage() {
+  return (
+    <div className="bg-gray-900 text-white font-sans">
+      {/* Header */}
+      <section className="min-h-screen flex flex-col items-center justify-center text-center bg-gradient-to-b from-gray-800 to-gray-900 p-8">
+        <h1 className="text-5xl font-bold mb-4">李鹏程的个人作品集</h1>
+        <p className="text-xl text-gray-300">游戏产品经理 / AI项目探索者</p>
+        <div className="mt-6 space-x-4">
+          <Button variant="secondary">独立项目</Button>
+          <Button variant="secondary">祖龙娱乐（Q&A Project）</Button>
+          <Button variant="secondary">展心展力项目</Button>
+          <Button variant="secondary">文脉互动游戏</Button>
+        </div>
+      </section>
+
+      {/* 独立项目 */}
+      <section className="p-8 bg-gray-800" id="indie">
+        <h2 className="text-3xl font-bold mb-4">独立项目</h2>
+        <Card className="bg-gray-700">
+          <CardContent className="p-4">
+            <h3 className="text-2xl font-semibold">AI 合成游戏</h3>
+            <p className="text-gray-300 mb-2">基于元素拖拽与大模型合成机制构建的创新游戏玩法。</p>
+            <video src="/videos/AI合成游戏展示.mp4" controls className="w-full rounded-xl mt-4" />
+          </CardContent>
+        </Card>
+      </section>
+
+      {/* 祖龙娱乐 */}
+      <section className="p-8 bg-gray-700" id="zulong">
+        <h2 className="text-3xl font-bold mb-4">祖龙娱乐（Q&A Project）</h2>
+        <Card className="bg-gray-600">
+          <CardContent className="p-4">
+            <h3 className="text-2xl font-semibold">游戏内AI答疑助手</h3>
+            <img src="/images/祖龙+deepseek.png" alt="祖龙AI项目" className="w-full rounded-xl" />
+            <p className="text-gray-300 mt-2">集成DeepSeek-R1模型的答疑系统，提升新手留存与互动体验。</p>
+          </CardContent>
+        </Card>
+      </section>
+
+      {/* 展心展力 */}
+      <section className="p-8 bg-gray-800" id="zhanxin">
+        <h2 className="text-3xl font-bold mb-4">展心展力项目</h2>
+        <Card className="bg-gray-700">
+          <CardContent className="p-4">
+            <h3 className="text-2xl font-semibold">AI + 游戏内容探索</h3>
+            <img src="/images/4fcaf327-c530-4054-9916-8ec0eee0930c.png" alt="捏脸系统" className="w-full rounded-xl" />
+            <p className="text-gray-300 mt-2">包含动作模仿、素材生成、捏脸、地图生成等模块。</p>
+            <a href="https://www.bilibili.com/video/BV1kH4y1i7b9" target="_blank" rel="noopener noreferrer" className="text-blue-400 underline block mt-2">查看宣传视频</a>
+          </CardContent>
+        </Card>
+      </section>
+
+      {/* 文脉互动游戏 */}
+      <section className="p-8 bg-gray-700" id="wenmai">
+        <h2 className="text-3xl font-bold mb-4">文脉互动游戏</h2>
+        <Card className="bg-gray-600">
+          <CardContent className="p-4">
+            <h3 className="text-2xl font-semibold">《圣龙传奇》《屠龙战记》</h3>
+            <p className="text-gray-300 mt-2">从0到1主导MMORPG核心玩法设计、活动与系统规划，支撑商业化与留存转化。</p>
+          </CardContent>
+        </Card>
+      </section>
+
+      {/* Footer */}
+      <footer className="text-center text-gray-400 text-sm py-6 bg-gray-900">
+        © 2025 李鹏程 All rights reserved.
+      </footer>
+    </div>
+  );
+}
