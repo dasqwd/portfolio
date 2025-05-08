@@ -38,7 +38,11 @@ section {
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
-h1, h2 {
+h1 {
+    color: white;  /* 标题颜色改为深色，便于阅读 */
+}
+
+h2 {
     color: #333;  /* 标题颜色改为深色，便于阅读 */
 }
 
