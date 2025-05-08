@@ -1,75 +1,74 @@
-import React from "react";
-import { Card, CardContent } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
-import { motion } from "framer-motion";
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>李鹏程的个人作品展示</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="#home">首页</a></li>
+                <li><a href="#independent-projects">独立项目</a></li>
+                <li><a href="#qna-project">祖龙娱乐</a></li>
+                <li><a href="#ai-projects">展心展力项目</a></li>
+                <li><a href="#games-projects">文脉互动游戏项目</a></li>
+                <li><a href="#about">关于我</a></li>
+                <li><a href="#achievements">成就与奖项</a></li>
+                <li><a href="#contact">联系方式</a></li>
+            </ul>
+        </nav>
+    </header>
 
-export default function PortfolioPage() {
-  return (
-    <div className="bg-gray-900 text-white font-sans">
-      {/* Header */}
-      <section className="min-h-screen flex flex-col items-center justify-center text-center bg-gradient-to-b from-gray-800 to-gray-900 p-8">
-        <h1 className="text-5xl font-bold mb-4">李鹏程的个人作品集</h1>
-        <p className="text-xl text-gray-300">游戏产品经理 / AI项目探索者</p>
-        <div className="mt-6 space-x-4">
-          <Button variant="secondary">独立项目</Button>
-          <Button variant="secondary">祖龙娱乐（Q&A Project）</Button>
-          <Button variant="secondary">展心展力项目</Button>
-          <Button variant="secondary">文脉互动游戏</Button>
-        </div>
-      </section>
+    <section id="home">
+        <h1>欢迎来到李鹏程的个人作品展示网站</h1>
+        <p>在这里，你可以看到我参与的游戏开发、工具项目以及相关的 AI 项目。</p>
+    </section>
 
-      {/* 独立项目 */}
-      <section className="p-8 bg-gray-800" id="indie">
-        <h2 className="text-3xl font-bold mb-4">独立项目</h2>
-        <Card className="bg-gray-700">
-          <CardContent className="p-4">
-            <h3 className="text-2xl font-semibold">AI 合成游戏</h3>
-            <p className="text-gray-300 mb-2">基于元素拖拽与大模型合成机制构建的创新游戏玩法。</p>
-            <video src="/videos/AI合成游戏展示.mp4" controls className="w-full rounded-xl mt-4" />
-          </CardContent>
-        </Card>
-      </section>
+    <section id="independent-projects">
+        <h2>独立项目</h2>
+        <p>这里展示我参与的独立游戏和工具项目。</p>
+	<video src="images/AI合成游戏展示.mp4" controls></video>
+    </section>
 
-      {/* 祖龙娱乐 */}
-      <section className="p-8 bg-gray-700" id="zulong">
-        <h2 className="text-3xl font-bold mb-4">祖龙娱乐（Q&A Project）</h2>
-        <Card className="bg-gray-600">
-          <CardContent className="p-4">
-            <h3 className="text-2xl font-semibold">游戏内AI答疑助手</h3>
-            <img src="/images/祖龙+deepseek.png" alt="祖龙AI项目" className="w-full rounded-xl" />
-            <p className="text-gray-300 mt-2">集成DeepSeek-R1模型的答疑系统，提升新手留存与互动体验。</p>
-          </CardContent>
-        </Card>
-      </section>
+    <section id="qna-project">
+        <h2>祖龙娱乐 - Q&A Project</h2>
+        <img src="images/祖龙+deepseek.png" alt="祖龙AI问答项目截图">
+        <p>AI问答助手嵌入式原型展示，实现NPC语义理解与实时反馈，提升游戏沉浸感。</p>
+    </section>
 
-      {/* 展心展力 */}
-      <section className="p-8 bg-gray-800" id="zhanxin">
-        <h2 className="text-3xl font-bold mb-4">展心展力项目</h2>
-        <Card className="bg-gray-700">
-          <CardContent className="p-4">
-            <h3 className="text-2xl font-semibold">AI + 游戏内容探索</h3>
-            <img src="/images/4fcaf327-c530-4054-9916-8ec0eee0930c.png" alt="捏脸系统" className="w-full rounded-xl" />
-            <p className="text-gray-300 mt-2">包含动作模仿、素材生成、捏脸、地图生成等模块。</p>
-            <a href="https://www.bilibili.com/video/BV1kH4y1i7b9" target="_blank" rel="noopener noreferrer" className="text-blue-400 underline block mt-2">查看宣传视频</a>
-          </CardContent>
-        </Card>
-      </section>
+    <section id="ai-projects">
+        <h2>展心展力项目</h2>
+        <p>AI + 游戏内容场景探索项目。</p>
+    </section>
 
-      {/* 文脉互动游戏 */}
-      <section className="p-8 bg-gray-700" id="wenmai">
-        <h2 className="text-3xl font-bold mb-4">文脉互动游戏</h2>
-        <Card className="bg-gray-600">
-          <CardContent className="p-4">
-            <h3 className="text-2xl font-semibold">《圣龙传奇》《屠龙战记》</h3>
-            <p className="text-gray-300 mt-2">从0到1主导MMORPG核心玩法设计、活动与系统规划，支撑商业化与留存转化。</p>
-          </CardContent>
-        </Card>
-      </section>
+    <section id="games-projects">
+        <h2>文脉互动游戏项目</h2>
+        <p>游戏项目展示：圣龙传奇、屠龙战记等。</p>
+    </section>
 
-      {/* Footer */}
-      <footer className="text-center text-gray-400 text-sm py-6 bg-gray-900">
-        © 2025 李鹏程 All rights reserved.
-      </footer>
-    </div>
-  );
-}
+    <section id="about">
+        <h2>关于我</h2>
+        <p>个人简介和工作经历。</p>
+        <!-- 可加入个人照片 -->
+    </section>
+
+    <section id="achievements">
+        <h2>成就与奖项</h2>
+        <p>我的成就与奖项展示。</p>
+    </section>
+
+    <section id="contact">
+        <h2>联系方式</h2>
+        <p>可以在这里找到我的联系方式。</p>
+    </section>
+
+    <footer>
+        <p>© 2025 李鹏程 | 个人作品展示</p>
+    </footer>
+
+    <script src="js/scripts.js"></script>
+</body>
+</html>
