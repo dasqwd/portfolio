@@ -5,6 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>李鹏程的个人作品展示</title>
     <link rel="stylesheet" href="css/styles.css">
+    <!-- 新增自定义聊天窗口样式 -->
+    <style>
+    /* 自定义悬浮窗样式 */
+    .coze-chat-widget {
+      right: 20px !important;
+      bottom: 20px !important;
+    }
+    /* 修改按钮颜色 */
+    .coze-chat-launcher {
+      background: #2d5aff !important;
+    }
+    </style>
 </head>
 <body>
     <header>
@@ -72,5 +84,30 @@
     </footer>
 
     <script src="js/scripts.js"></script>
+
+    <!-- 新增Coze智能体代码 -->
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        const script = document.createElement('script');
+      	 script.src = 'https://lf3-coze-chatbot.feishu.cn/obj/feishu-static/resources/coze/chat-web-sdk/1.3.0/sdk.js';
+   	 script.onload = function () {
+          new CozeWebSDK.WebChatClient({
+            config: {
+              botId: '7502391040024920114' // 请确认ID有效性
+            },
+            auth: {
+              type: 'token',
+              token: 'pat_x8X38MRHfPsV01gD6aHnlJBS379WjiQRe21suebBgKdwktJVPpP1qjTuRR0NFXu4'
+            },
+            componentProps: {
+              title: '李鹏程的AI助手',
+              layout: 'pc',
+              welcomeMessage: '您好！我是李鹏程的AI助手，可以咨询我的项目经验、技能或工作经历。'
+            }
+          });
+        };
+        document.body.appendChild(script);
+      });
+    </script>
 </body>
 </html>
