@@ -3,13 +3,15 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta http-equiv="Content-Security-Policy" content="
-    default-src 'self' https://api.openai.com;
-    style-src 'self' 'unsafe-inline';
-    img-src 'self' data: https:;
-    script-src 'self' https:;
-  ">
+<meta http-equiv="Content-Security-Policy" content="
+  default-src 'self';
+  connect-src 'self' https://api.coze.cn https://api.openai.com;
+  style-src 'self' 'unsafe-inline';
+  img-src 'self' data: https:;
+  script-src 'self' 'unsafe-inline' https:;
+">
     <title>李鹏程的个人作品展示</title>
     <link rel="stylesheet" href="css/styles.css">
 </head>
@@ -75,7 +77,6 @@
     <section id="ai-projects">
         <h2>展心展力项目</h2>
         <p>AI + 游戏内容场景探索项目。</p>
-        <img src="images/展心展力+捏脸.png" alt="展心展力捏脸项目">
     </section>
 
     <section id="games-projects">
