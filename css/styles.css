@@ -1,150 +1,248 @@
-const config = {
-  token: "pat_x8X38MRHfPsV01gD6aHnlJBS379WjiQRe21suebBgKdwktJVPpP1qjTuRR0NFXu4", // ⚠ 建议移到后端
-  assistantId: "asst_F3EEC61eLoNBYCJkwoohZtHV",
-  avatars: {
-    user: "./assets/user-icon.png",
-    assistant: "./assets/assistant-icon.png"
-  },
-  fallbackAvatar: "./assets/default-icon.png"
-};
+/* ========== 通用基础样式 ========== */
+body {
+  margin: 0;
+  font-family: "Segoe UI", "Microsoft YaHei", sans-serif;
+  background-color: #f4f4f4;
+  color: #333;
+  line-height: 1.6;
+}
 
-const userInput = document.getElementById("user-input");
-const sendBtn = document.getElementById("send-btn");
-const messagesContainer = document.getElementById("messages");
-const loadingIndicator = document.querySelector(".loading-indicator");
 
-let threadId = null;
+h1, h2, h3 {
+  margin-top: 1em;
+  color: #222;
+}
 
-// 监听按钮点击
-sendBtn.addEventListener("click", sendMessage);
 
-// 监听回车发送
-userInput.addEventListener("keydown", function (e) {
-  if (e.key === "Enter" && !e.shiftKey) {
-    e.preventDefault();
-    sendMessage();
+section {
+    padding: 2rem;
+    margin: 1rem;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+p {
+  margin: 1em 0;
+}
+
+a {
+  color: #3498db;
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}
+
+/* ========== 导航栏样式 ========== */
+header {
+  background-color: #222;
+  color: #fff;
+  padding: 10px 0;
+  position: sticky;
+  top: 0;
+  z-index: 999;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  padding: 0;
+  margin: 0;
+}
+
+nav li {
+  margin: 0 15px;
+}
+
+nav a {
+  color: #fff;
+  font-weight: bold;
+  padding: 8px 12px;
+  border-radius: 4px;
+}
+nav a:hover {
+  background-color: #444;
+}
+
+/* 首页和模块的布局样式 */
+#home {
+    background: linear-gradient(135deg, #e0f7fa, #b3e5fc);  /* 浅蓝色渐变背景 */
+    text-align: center;
+    padding: 60px 20px;  /* 可选：增加内边距以提升视觉效果 */
+}
+
+/* ========== 视频和图像展示 ========== */
+video, img {
+  max-width: 100%;
+  border-radius: 8px;
+  margin-top: 15px;
+}
+
+/* ========== AI 聊天容器样式 ========== */
+.custom-chat-container {
+  background: #fff;
+  border: 1px solid #ccc;
+  border-radius: 12px;
+  padding: 16px;
+  max-width: 1000px;
+  margin: 30px auto 0 auto;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+
+.chat-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 8px;
+  margin-bottom: 10px;
+}
+
+.chat-header h3 {
+  font-size: 18px;
+  margin: 0;
+}
+
+.loading-indicator {
+  font-size: 14px;
+  color: #888;
+  animation: blink 1s steps(2, start) infinite;
+  opacity: 0;
+}
+@keyframes blink {
+  0% { opacity: 0; }
+  50% { opacity: 1; }
+  100% { opacity: 0; }
+}
+
+
+/* 聊天消息区 */
+.chat-messages {
+  max-height: 1000px;
+  overflow-y: auto;
+  margin-bottom: 10px;
+}
+
+.message {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 12px;
+}
+
+.message .avatar {
+  width: 48px;
+  height: 48px;
+  margin-right: 10px;
+  flex-shrink: 0;
+}
+
+.message .avatar img {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #ddd;
+}
+
+.message .message-text, .message .content {
+  background-color: #f0f0f0;
+  padding: 10px 14px;
+  border-radius: 10px;
+  max-width: 80%;
+  word-wrap: break-word;
+  text-align: left !important;
+  margin-left: 0 !important;
+  padding-left: 0 !important;
+}
+
+/* 输入栏样式 */
+.chat-input {
+  display: flex;
+  gap: 8px;
+}
+
+.chat-input input[type="text"] {
+  flex: 1;
+  padding: 10px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  font-size: 14px;
+}
+
+.chat-input button {
+  padding: 10px 16px;
+  background-color: #3498db;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.chat-input button:hover {
+  background-color: #2980b9;
+}
+
+/* ========== 页脚 ========== */
+footer {
+    text-align: center;
+    padding: 1rem;
+    background-color: #ecf0f1;  /* 底部背景色改为浅色 */
+    color: #333;  /* 底部文字颜色改为深色，确保对比 */
+}
+
+/* ========== 移动端适配 ========== */
+@media (max-width: 768px) {
+  nav ul {
+    flex-direction: column;
+    align-items: center;
   }
-});
 
-async function sendMessage() {
-  const userMessage = userInput.value.trim();
-  if (!userMessage) return;
+  nav li {
+    margin: 10px 0;
+  }
 
-  appendMessage(userMessage, "user");
-  userInput.value = "";
+  .custom-chat-container {
+    width: 95%;
 
-  // 禁用输入与显示loading
-  userInput.disabled = true;
-  sendBtn.disabled = true;
-  loadingIndicator.style.opacity = "1";
 
-  try {
-    // 1. 创建对话线程
-    if (!threadId) {
-      const threadRes = await fetch("https://api.openai.com/v1/threads", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          "Authorization": `Bearer ${config.token}`
-        }
-      });
-      const threadData = await threadRes.json();
-      threadId = threadData.id;
-    }
+    padding: 14px;
+  }
 
-    // 2. 添加用户消息
-    await fetch(`https://api.openai.com/v1/threads/${threadId}/messages`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        "Authorization": `Bearer ${config.token}`
-      },
-      body: JSON.stringify({
-        role: "user",
-        content: userMessage
-      })
-    });
+  .chat-input input[type="text"] {
+    font-size: 16px;
+  }
 
-    // 3. 触发运行
-    const runRes = await fetch(`https://api.openai.com/v1/threads/${threadId}/runs`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        "Authorization": `Bearer ${config.token}`
-      },
-      body: JSON.stringify({
-        assistant_id: config.assistantId
-      })
-    });
-    const runData = await runRes.json();
+  .chat-input button {
+    font-size: 14px;
+  }
 
-    // 4. 轮询获取回复
-    const assistantReply = await pollRunStatus(threadId, runData.id);
+  .message .message-text, .message .content {
+    font-size: 15px;
+  }
 
-    if (assistantReply) {
-      appendMessage(assistantReply, "assistant");
-    } else {
-      appendMessage("Assistant did not reply in time.", "assistant");
-    }
+  section {
+    padding: 30px 15px;
+  }
 
-  } catch (error) {
-    console.error("Error:", error);
-    appendMessage("发生错误，请稍后再试。", "assistant");
-  } finally {
-    // 恢复输入与隐藏loading
-    userInput.disabled = false;
-    sendBtn.disabled = false;
-    loadingIndicator.style.opacity = "0";
+  h1 {
+    font-size: 22px;
+  }
+
+  h2 {
+    font-size: 20px;
+  }
+
+  .chat-messages {
+    max-height: 240px;
+  }
+
+  video {
+    height: auto;
+    max-height: 240px;
   }
 }
 
-// 轮询获取助手回复
-async function pollRunStatus(threadId, runId) {
-  const maxAttempts = 20;
-  const delay = 1500;
-
-  for (let attempt = 0; attempt < maxAttempts; attempt++) {
-    const res = await fetch(`https://api.openai.com/v1/threads/${threadId}/runs/${runId}`, {
-      headers: {
-        "Authorization": `Bearer ${config.token}`
-      }
-    });
-    const data = await res.json();
-
-    if (data.status === "completed") {
-      // 获取消息
-      const msgRes = await fetch(`https://api.openai.com/v1/threads/${threadId}/messages`, {
-        headers: {
-          "Authorization": `Bearer ${config.token}`
-        }
-      });
-      const msgData = await msgRes.json();
-      const lastMsg = msgData.data.find(msg => msg.role === "assistant");
-      return lastMsg?.content?.[0]?.text?.value || "（无内容）";
-    }
-
-    await new Promise(resolve => setTimeout(resolve, delay));
-  }
-
-  return null;
-}
-
-// 显示消息
-function appendMessage(content, type) {
-  const messageDiv = document.createElement("div");
-  messageDiv.className = `message ${type} animate__animated animate__fadeInUp`;
-
-  const avatar = document.createElement("img");
-  avatar.className = "avatar";
-  avatar.src = config.avatars[type] || config.fallbackAvatar;
-
-  const text = document.createElement("div");
-  text.className = "message-text";
-  text.textContent = content;
-
-  messageDiv.appendChild(avatar);
-  messageDiv.appendChild(text);
-  messagesContainer.appendChild(messageDiv);
-
-  messagesContainer.scrollTop = messagesContainer.scrollHeight;
-}
