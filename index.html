@@ -1,25 +1,21 @@
 <!DOCTYPE html>
 <html lang="zh">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta http-equiv="Content-Security-Policy" content="
+    default-src 'self' https://api.openai.com;
+    style-src 'self' 'unsafe-inline';
+    img-src 'self' data: https:;
+    script-src 'self' https:;
+  ">
     <title>李鹏程的个人作品展示</title>
     <link rel="stylesheet" href="css/styles.css">
-    <!-- 新增自定义聊天窗口样式 -->
-    <style>
-    /* 自定义悬浮窗样式 */
-    .coze-chat-widget {
-      right: 20px !important;
-      bottom: 20px !important;
-    }
-    /* 修改按钮颜色 */
-    .coze-chat-launcher {
-      background: #2d5aff !important;
-    }
-    </style>
 </head>
 <body>
-    <header>
+    <!-- ============== 头部导航 ============== -->
+    <header> 
         <nav>
             <ul>
                 <li><a href="#home">首页</a></li>
@@ -28,33 +24,56 @@
                 <li><a href="#ai-projects">展心展力项目</a></li>
                 <li><a href="#games-projects">文脉互动游戏项目</a></li>
                 <li><a href="#about">关于我</a></li>
-                <li><a href="#achievements">成就与奖项</a></li>
                 <li><a href="#contact">联系方式</a></li>
             </ul>
         </nav>
     </header>
 
+    <!-- 首页内容 -->
     <section id="home">
         <h1>欢迎来到李鹏程的个人作品展示网站</h1>
-        <p>在这里，你可以看到我参与的游戏开发、工具项目以及相关的 AI 项目。</p>
+        <p>在这里，你可以咨询我的AI智能助手，向他询问有关我的问题，以及查看我参与过的游戏开发和相关的 AI 项目。</p>
+        
+        <!-- 聊天容器 -->
+        <div class="custom-chat-container">
+            <div class="chat-header">
+                <h3>李鹏程的 AI 智能助手</h3>
+                <div class="loading-indicator"></div>
+            </div>
+            
+            <div class="chat-messages" id="messages">
+                <div class="message system">
+                    <div class="avatar">
+                        <img src="images/ai-avatar.png" alt="AI头像">
+                    </div>
+                    <div class="content">
+                        <p>👋您好，我是李鹏程的AI智能助手！<br><br>我可以帮助你快速了解李鹏程同学在游戏设计、AI 产品、跨平台项目中的专业能力与项目成果。<br>李鹏程曾在祖龙娱乐、展心展力、文脉互动等公司担任核心岗位，主导 UGC 平台、AI 场景落地与商业化方向的项目研发。你可以在这里深入了解他的：<br><br>🕹 独立项目：AI 合成游戏、AI 智能助手等<br>🏢 企业项目：祖龙娱乐 Q&A 系统、AI 游戏内容搭建等<br>🎓 能力标签：AI 产品策划、系统逻辑设计、项目协作管理<br><br>📌 你可以提问我：</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="chat-input">
+                <input type="text" id="user-input" placeholder="输入您的问题...">
+                <button id="send-btn" aria-label="发送消息">发送</button>
+            </div>
+        </div>
     </section>
 
+    <!-- 其他内容区块 -->
     <section id="independent-projects">
         <h2>独立项目</h2>
         <p>这里展示我参与的独立游戏和工具项目。</p>
-	<video src="images/AI合成游戏展示.mp4" controls></video>
+        <video src="images/AI合成游戏展示.mp4" controls></video>
     </section>
 
     <section id="qna-project">
         <h2>祖龙娱乐 - Q&A Project</h2>
-        <img src="images/祖龙+deepseek.png" alt="祖龙AI问答项目截图">
         <p>AI问答助手嵌入式原型展示，实现NPC语义理解与实时反馈，提升游戏沉浸感。</p>
+        <img src="images/祖龙+deepseek.png" alt="祖龙AI问答项目截图">
     </section>
 
     <section id="ai-projects">
         <h2>展心展力项目</h2>
-	<img src="images/展心展力+捏脸.png" alt="展心展力项目截图">    
-	<img src="images/展心展力+天空球.png" alt="展心展力项目截图">    
         <p>AI + 游戏内容场景探索项目。</p>
     </section>
 
@@ -66,7 +85,6 @@
     <section id="about">
         <h2>关于我</h2>
         <p>个人简介和工作经历。</p>
-        <!-- 可加入个人照片 -->
     </section>
 
     <section id="achievements">
@@ -84,23 +102,5 @@
     </footer>
 
     <script src="js/scripts.js"></script>
-
-    <!-- 新增Coze智能体代码 -->
-    <script src="https://lf-cdn.coze.cn/obj/unpkg/flow-platform/chat-app-sdk/1.2.0-beta.6/libs/cn/index.js"></script>
-    <script>
-    new CozeWebSDK.WebChatClient({
-      config: {
-      bot_id: '7502391040024920114',
-    },
-    componentProps: {
-      title: 'Coze',
-    },
-    auth: {
-      type: 'token',
-      token: 'pat_x8X38MRHfPsV01gD6aHnlJBS379WjiQRe21suebBgKdwktJVPpP1qjTuRR0NFXu4',
-      onRefreshToken: function () {
-        return 'pat_x8X38MRHfPsV01gD6aHnlJBS379WjiQRe21suebBgKdwktJVPpP1qjTuRR0NFXu4'
-      }
-    }
 </body>
 </html>
