@@ -63,6 +63,7 @@ nav a {
   padding: 8px 12px;
   border-radius: 4px;
 }
+
 nav a:hover {
   background-color: #444;
 }
@@ -197,13 +198,19 @@ footer {
 /* ========== 移动端适配 ========== */
 @media (max-width: 768px) {
   nav ul {
-    flex-direction: column;
-    align-items: center;
+        flex-wrap: nowrap; /* 不换行 */
+        overflow-x: auto;  /* 横向滚动 */
+        -webkit-overflow-scrolling: touch;
+        padding: 0 10px;
   }
 
   nav li {
-    margin: 10px 0;
+    flex: 0 0 auto;
   }
+
+    nav a {
+        font-size: 14px; /* 字体稍微小一些 */
+    }
 
   .custom-chat-container {
     width: 95%;
