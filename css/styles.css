@@ -1,73 +1,150 @@
-/* 通用样式 */
-body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #f4f4f4;
+const config = {
+  token: "pat_x8X38MRHfPsV01gD6aHnlJBS379WjiQRe21suebBgKdwktJVPpP1qjTuRR0NFXu4", // ⚠ 建议移到后端
+  assistantId: "asst_F3EEC61eLoNBYCJkwoohZtHV",
+  avatars: {
+    user: "./assets/user-icon.png",
+    assistant: "./assets/assistant-icon.png"
+  },
+  fallbackAvatar: "./assets/default-icon.png"
+};
+
+const userInput = document.getElementById("user-input");
+const sendBtn = document.getElementById("send-btn");
+const messagesContainer = document.getElementById("messages");
+const loadingIndicator = document.querySelector(".loading-indicator");
+
+let threadId = null;
+
+// 监听按钮点击
+sendBtn.addEventListener("click", sendMessage);
+
+// 监听回车发送
+userInput.addEventListener("keydown", function (e) {
+  if (e.key === "Enter" && !e.shiftKey) {
+    e.preventDefault();
+    sendMessage();
+  }
+});
+
+async function sendMessage() {
+  const userMessage = userInput.value.trim();
+  if (!userMessage) return;
+
+  appendMessage(userMessage, "user");
+  userInput.value = "";
+
+  // 禁用输入与显示loading
+  userInput.disabled = true;
+  sendBtn.disabled = true;
+  loadingIndicator.style.opacity = "1";
+
+  try {
+    // 1. 创建对话线程
+    if (!threadId) {
+      const threadRes = await fetch("https://api.openai.com/v1/threads", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "Authorization": `Bearer ${config.token}`
+        }
+      });
+      const threadData = await threadRes.json();
+      threadId = threadData.id;
+    }
+
+    // 2. 添加用户消息
+    await fetch(`https://api.openai.com/v1/threads/${threadId}/messages`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "Authorization": `Bearer ${config.token}`
+      },
+      body: JSON.stringify({
+        role: "user",
+        content: userMessage
+      })
+    });
+
+    // 3. 触发运行
+    const runRes = await fetch(`https://api.openai.com/v1/threads/${threadId}/runs`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "Authorization": `Bearer ${config.token}`
+      },
+      body: JSON.stringify({
+        assistant_id: config.assistantId
+      })
+    });
+    const runData = await runRes.json();
+
+    // 4. 轮询获取回复
+    const assistantReply = await pollRunStatus(threadId, runData.id);
+
+    if (assistantReply) {
+      appendMessage(assistantReply, "assistant");
+    } else {
+      appendMessage("Assistant did not reply in time.", "assistant");
+    }
+
+  } catch (error) {
+    console.error("Error:", error);
+    appendMessage("发生错误，请稍后再试。", "assistant");
+  } finally {
+    // 恢复输入与隐藏loading
+    userInput.disabled = false;
+    sendBtn.disabled = false;
+    loadingIndicator.style.opacity = "0";
+  }
 }
 
-header {
-    background-color: #333;   /* 你可以保持黑色，但要确保文字颜色对比足够 */
-    color: white;  /* 标题文字颜色改为白色 */
-    padding: 1rem;
+// 轮询获取助手回复
+async function pollRunStatus(threadId, runId) {
+  const maxAttempts = 20;
+  const delay = 1500;
+
+  for (let attempt = 0; attempt < maxAttempts; attempt++) {
+    const res = await fetch(`https://api.openai.com/v1/threads/${threadId}/runs/${runId}`, {
+      headers: {
+        "Authorization": `Bearer ${config.token}`
+      }
+    });
+    const data = await res.json();
+
+    if (data.status === "completed") {
+      // 获取消息
+      const msgRes = await fetch(`https://api.openai.com/v1/threads/${threadId}/messages`, {
+        headers: {
+          "Authorization": `Bearer ${config.token}`
+        }
+      });
+      const msgData = await msgRes.json();
+      const lastMsg = msgData.data.find(msg => msg.role === "assistant");
+      return lastMsg?.content?.[0]?.text?.value || "（无内容）";
+    }
+
+    await new Promise(resolve => setTimeout(resolve, delay));
+  }
+
+  return null;
 }
 
-nav ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    text-align: center;
-}
+// 显示消息
+function appendMessage(content, type) {
+  const messageDiv = document.createElement("div");
+  messageDiv.className = `message ${type} animate__animated animate__fadeInUp`;
 
-nav ul li {
-    display: inline;
-    margin: 0 15px;
-}
+  const avatar = document.createElement("img");
+  avatar.className = "avatar";
+  avatar.src = config.avatars[type] || config.fallbackAvatar;
 
-nav ul li a {
-    color: white;
-    text-decoration: none;
-    font-size: 18px;
-}
+  const text = document.createElement("div");
+  text.className = "message-text";
+  text.textContent = content;
 
-section {
-    padding: 2rem;
-    margin: 1rem;
-    background-color: white;
-    border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-}
+  messageDiv.appendChild(avatar);
+  messageDiv.appendChild(text);
+  messagesContainer.appendChild(messageDiv);
 
-h1 {
-    color: white;  /* 标题颜色改为深色，便于阅读 */
-    font-size: 48px;   /* 放大 h1 字体 */
-}
-
-h2 {
-    color: #333;  /* 标题颜色改为深色，便于阅读 */
-}
-
-footer {
-    text-align: center;
-    padding: 1rem;
-    background-color: #ecf0f1;  /* 底部背景色改为浅色 */
-    color: #333;  /* 底部文字颜色改为深色，确保对比 */
-}
-
-/* 首页和模块的布局样式 */
-#home {
-    background-color: #2c3e50;  /* 深蓝色背景 */
-    color: white;  /* 标题文字为白色 */
-    text-align: center;
-}
-/* 首页和模块的布局样式 */
-section p {
-    font-size: 16px;
-    line-height: 1.6;
-}
-
-#about img {
-    width: 150px;
-    border-radius: 50%;
-    margin-top: 20px;
+  messagesContainer.scrollTop = messagesContainer.scrollHeight;
 }
