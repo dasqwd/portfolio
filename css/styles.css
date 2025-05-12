@@ -134,7 +134,7 @@ video, img {
 .message {
   display: flex;
   align-items: flex-start;
-  margin-bottom: 12px;
+  margin-bottom: 10px;
 }
 
 .message .avatar {
@@ -160,8 +160,12 @@ video, img {
   max-width: 80%;
   word-wrap: break-word;
   text-align: left !important;
-  margin-left: 0 !important;
-  padding-left: 0 !important;
+  margin-top: 5px; /* 给聊天内容增加上边距 */
+  margin-bottom: 5px; /* 给聊天内容增加下边距 */
+  padding-left: 5px; /* 给聊天内容增加左边距 */
+  padding-right: 5px; /* 给聊天内容增加右边距 */
+  padding-top: 8px; /* 给聊天内容增加上内边距，增加文字与背景的上方间距 */
+  padding-bottom: 8px; /* 给聊天内容增加下内边距，增加文字与背景的下方间距 */
 }
 
 /* 输入栏样式 */
@@ -221,6 +225,7 @@ footer {
     color: #333;  /* 底部文字颜色改为深色，确保对比 */
 }
 
+/* ========== 移动端适配 ========== */
 @media (max-width: 768px) {
   nav ul {
     flex-wrap: nowrap; /* 不换行 */
