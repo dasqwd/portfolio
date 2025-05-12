@@ -7,8 +7,12 @@ body {
   line-height: 1.6;
 }
 
+h1 {
+  margin-top: -30px;
+  color: #222;
+}
 
-h1, h2, h3 {
+h2, h3 {
   margin-top: 1em;
   color: #222;
 }
@@ -256,7 +260,7 @@ footer {
 
   h1 {
     font-size: 20px; /* 减小字体大小 */
-    margin-top: 2px; /* 减小上边距 */
+    margin-top: -50px;
     margin-bottom: 2px; /* 减小下边距 */
     padding-left: 2px; /* 左右留一些空隙 */
     padding-right: 2px;
