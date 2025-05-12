@@ -6,6 +6,7 @@ const config = {
     assistant: "./images/ai-avatar.png"
   },
   fallbackAvatar: "./images/default-icon.png"
+
 };
 
 // DOM 引用
@@ -109,4 +110,83 @@ function appendMessage(content, type) {
   messageDiv.appendChild(text);
   messagesContainer.appendChild(messageDiv);
   messagesContainer.scrollTop = messagesContainer.scrollHeight;
+}
+
+const starterQuestionPool = [
+  "简单介绍一下李鹏程的工作经历",
+  "他有哪些游戏策划或编辑器开发经验？",
+  "李鹏程对AI方向的理解或兴趣是什么",
+  "可以帮我快速了解他的代表项目吗？",
+  "他是否有实际商业化落地经验？",
+  "有哪些独立开发或个人项目？",
+  "请问李鹏程的技术栈是什么？",
+  "他的AI项目是否支持产品化上线",
+  "能介绍一下李鹏程做的AI合成游戏吗",
+  "李鹏程现在在找什么方向的工作？偏AI还是游戏",
+  "他对职位有什么偏好或发展目标",
+  "他合作方式或沟通风格怎么样？",
+  "他在项目中擅长解决哪一类问题",
+  "他是偏技术、偏产品，还是偏创意型人才",
+  "如何理解AI和实际应用",
+  "李鹏程如何看待AI和游戏的结合",
+  "他平时如何学习和提升技能的",
+  "他如何理解产品经理工作流程",
+  "他如何理解产品经理和游戏策划的区别",
+  "你用过哪些大模型",
+  "未来三年的职业规划是什么",
+  "如何构建结构化知识库",
+  "你是如何去做产品分析和市场定位",
+  "你有哪些技术背景支撑落地AI产品",
+  "为什么想转做AI方向"
+];
+
+let currentQuestions = [];
+
+function getRandomQuestion(excludeList) {
+  const pool = starterQuestionPool.filter(q => !excludeList.includes(q));
+  if (pool.length === 0) return null;
+  return pool[Math.floor(Math.random() * pool.length)];
+}
+
+function renderStarterBar() {
+  const container = document.getElementById("starter-questions-bar");
+  container.innerHTML = "";
+
+  currentQuestions.forEach((question, index) => {
+    const btn = document.createElement("button");
+    btn.className = "starter-question-btn";
+    btn.textContent = question;
+
+    btn.addEventListener("click", () => {
+      // 模拟用户点击后提问
+      userInput.value = question;
+      sendMessage();
+
+      // 替换掉当前的问题
+      const usedQuestion = currentQuestions[index];
+      const newQuestion = getRandomQuestion(currentQuestions);
+
+      if (newQuestion) {
+        currentQuestions[index] = newQuestion;
+      } else {
+        currentQuestions.splice(index, 1); // 没有新问题了，删掉
+      }
+
+      renderStarterBar(); // 重新渲染
+    });
+
+    container.appendChild(btn);
+  });
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+  // 初始化3个不重复的问题
+  const shuffled = starterQuestionPool.sort(() => Math.random() - 0.5);
+  currentQuestions = shuffled.slice(0, 3);
+  renderStarterBar();
+});
+
+function useStarter(text) {
+  userInput.value = text;
+  sendMessage();
 }
