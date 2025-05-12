@@ -252,7 +252,7 @@ footer {
   .custom-chat-container {
     width: 95%;
     padding: 14px;
-    margin: 16px auto -30px auto;  /* 上边距减少，原来是30px */
+    margin: 10px auto -30px auto;  /* 上边距减少，原来是30px */
   }
 
   .chat-input input[type="text"] {
