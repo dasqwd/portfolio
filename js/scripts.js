@@ -36,6 +36,7 @@ async function sendMessage() {
   userInput.disabled = true;
   sendBtn.disabled   = true;
   loadingIndicator.style.opacity = "1";
+  showThinking(); // 正确显示“思考中...”
 
   try {
     const payload = {
@@ -87,10 +88,12 @@ async function sendMessage() {
     console.error("请求出错：", err);
     appendMessage("发生错误，请稍后再试。", "assistant");
   } finally {
+    hideThinking(); // ✅ 只在整个请求结束后才移除
     userInput.disabled = false;
     sendBtn.disabled   = false;
     loadingIndicator.style.opacity = "0";
   }
+
 }
 
 function appendMessage(content, type) {
@@ -188,4 +191,16 @@ document.addEventListener("DOMContentLoaded", () => {
 function useStarter(text) {
   userInput.value = text;
   sendMessage();
+}
+
+function showThinking() {
+  const title = document.getElementById("chat-title");
+  if (!title.innerText.includes("思考中...")) {
+    title.innerText += "（思考中...）";
+  }
+}
+
+function hideThinking() {
+  const title = document.getElementById("chat-title");
+  title.innerText = "李鹏程的 AI 智能助手";
 }
