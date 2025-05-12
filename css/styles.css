@@ -256,10 +256,10 @@ footer {
 
   h1 {
     font-size: 20px; /* 减小字体大小 */
-    margin-top: 10px; /* 减小上边距 */
-    margin-bottom: 10px; /* 减小下边距 */
-    padding-left: 10px; /* 左右留一些空隙 */
-    padding-right: 10px;
+    margin-top: 2px; /* 减小上边距 */
+    margin-bottom: 2px; /* 减小下边距 */
+    padding-left: 2px; /* 左右留一些空隙 */
+    padding-right: 2px;
     text-align: center; /* 保证居中对齐 */
   }
 
