@@ -117,12 +117,19 @@ video, img {
   animation: blink 1s steps(2, start) infinite;
   opacity: 0;
 }
+
 @keyframes blink {
   0% { opacity: 0; }
   50% { opacity: 1; }
   100% { opacity: 0; }
 }
 
+.thinking {
+  font-weight: normal;
+  font-size: 14px;
+  color: #999;
+  margin-left: 8px;
+}
 
 /* 聊天消息区 */
 .chat-messages {
