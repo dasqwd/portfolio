@@ -217,27 +217,24 @@ footer {
     color: #333;  /* 底部文字颜色改为深色，确保对比 */
 }
 
-/* ========== 移动端适配 ========== */
 @media (max-width: 768px) {
   nav ul {
-        flex-wrap: nowrap; /* 不换行 */
-        overflow-x: auto;  /* 横向滚动 */
-        -webkit-overflow-scrolling: touch;
-        padding: 0 10px;
+    flex-wrap: nowrap; /* 不换行 */
+    overflow-x: auto;  /* 横向滚动 */
+    -webkit-overflow-scrolling: touch;
+    padding: 0 10px;
   }
 
   nav li {
     flex: 0 0 auto;
   }
 
-    nav a {
-        font-size: 14px; /* 字体稍微小一些 */
-    }
+  nav a {
+    font-size: 14px; /* 字体稍微小一些 */
+  }
 
   .custom-chat-container {
     width: 95%;
-
-
     padding: 14px;
   }
 
@@ -254,15 +251,22 @@ footer {
   }
 
   section {
-    padding: 30px 15px;
+    padding: 20px 15px; /* 缩小 padding，减小页面间距 */
   }
 
   h1 {
-    font-size: 22px;
+    font-size: 20px; /* 减小字体大小 */
+    margin-top: 10px; /* 减小上边距 */
+    margin-bottom: 10px; /* 减小下边距 */
+    padding-left: 10px; /* 左右留一些空隙 */
+    padding-right: 10px;
+    text-align: center; /* 保证居中对齐 */
   }
 
   h2 {
-    font-size: 20px;
+    font-size: 18px; /* 更小的字体 */
+    margin-top: 8px; /* 减小上边距 */
+    margin-bottom: 8px; /* 减小下边距 */
   }
 
   .chat-messages {
@@ -273,5 +277,11 @@ footer {
     height: auto;
     max-height: 240px;
   }
-}
 
+  /* 调整段落文字 */
+  p {
+    font-size: 14px; /* 减小文字字体 */
+    line-height: 1.4; /* 缩小行间距 */
+    margin-bottom: 10px; /* 减小段落间距 */
+  }
+}
