@@ -114,7 +114,6 @@ function appendMessage(content, type) {
 
 const starterQuestionPool = [
   "简单介绍一下李鹏程的工作经历",
-  "他有哪些游戏策划或编辑器开发经验？",
   "李鹏程对AI方向的理解或兴趣是什么",
   "可以帮我快速了解他的代表项目吗？",
   "他是否有实际商业化落地经验？",
