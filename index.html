@@ -62,54 +62,83 @@
         </div>
     </section>
 
-    <!-- 其他内容区块 -->
-    <section id="independent-projects">
-    <h2 class="project-title">🧠 AI合成游戏 | AI Synthesis Game</h2>
-    <p class="project-subtitle">
-      一款结合大语言模型与图像生成能力的创意合成探索游戏
-    </p>
+<!-- 独立游戏项目区块 -->
+<section id="independent-games">
+    <h2>🎮 独立游戏项目展示</h2>
+    	<hr>
+    <!-- AI宠物陪伴游戏 -->
+    <div class="game-project">
+        <h3 class="project-title">🐾 AI宠物陪伴游戏 | AI Pet Companion</h3>
+        <p class="project-subtitle">
+          一款基于大语言模型的虚拟宠物互动游戏，提供情感陪伴与成长体验
+        </p>
 
-  <div class="project-section">
-    <h3>🎮 项目简介</h3>
-    <p>
-      类《Infinite Craft》玩法，通过拖动和合成基础元素（金、木、水、火、土）不断解锁新元素。
-      融合本地大模型（Ollama）与图像生成（Stable Diffusion）能力，玩家可探索合成路径并最终发现神兽类元素。
-    </p>
-  </div>
-
-  <div class="project-section">
-    <h3>🔧 我负责的内容</h3>
-    <ul>
-      <li>玩法系统设计：策划元素合成规则、神兽设定与探索流程</li>
-      <li>Unity开发实现：实现拖拽、碰撞检测、元素生成、合成历史等核心功能</li>
-      <li>AI模型集成：调用本地 Ollama 实现合成逻辑，接入 Stable Diffusion 生成神兽图像</li>
-      <li>UI与成就系统：设计成就解锁弹窗、背景切换与历史复用机制</li>
-    </ul>
-  </div>
-
-  <div class="project-section">
-    <h3>✨ 技术亮点</h3>
-    <ul>
-      <li>✅ 本地部署大语言模型（Ollama）驱动元素合成逻辑</li>
-      <li>🎨 Stable Diffusion 实时生成神兽图像并自动替换背景</li>
-      <li>🧩 模块化元素系统，支持拖拽、复制与扩展</li>
-      <li>📜 合成历史可复用，提升探索与策略体验</li>
-      <li>🏆 神兽成就系统带有进度记录与动态提示弹窗</li>
-    </ul>
-  </div>
-
-  <div class="project-section">
-    <h3>🎥 项目展示</h3>
-      <video src="images/AI合成游戏展示.mp4" controls></video>
-    <div class="media-gallery">
-      <img src="images/AI合成游戏截图1.png" alt="AI合成游戏截图1" />
+        <div class="project-section">
+            <h4>🎮 项目简介</h4>
+            <p>
+                这款游戏允许玩家领养并培养独特的AI宠物，通过日常互动、训练和情感交流建立深度联结。
+                宠物具有个性发展和记忆能力，会随着时间成长并形成独特的性格特征。
+            </p>
+            <p>
+                <a href="https://dasqwd.github.io/pet-capture-game/" target="_blank">AI宠物陪伴游戏网站-《灵伴奇缘》</a>
+            </p>
+        </div>
+	<div class="project-section">
+  		<h4>💡 技术栈</h4>
+  		<p> Coze（智能体+知识库+工作流+API） · Stable Diffusion（AI图片生成） · Sad Talker（AI视频生成）</p>
+	</div>
     </div>
-  </div>
 
-  <div class="project-section">
-    <h3>💡 技术栈</h3>
-    <p>Unity · C# · Ollama · LLM（Llama3） · Stable Diffusion（绘世SD） · JSON API</p>
-  </div>
+	<hr>
+    
+    <!-- AI合成游戏 -->
+    <div class="game-project">
+        <h3 class="project-title">🧠 AI合成游戏 | AI Synthesis Game</h3>
+        <p class="project-subtitle">
+          一款结合大语言模型与图像生成能力的创意合成探索游戏
+        </p>
+
+        <div class="project-section">
+            <h4>🎮 项目简介</h4>
+            <p>
+              类《Infinite Craft》玩法，通过拖动和合成基础元素（金、木、水、火、土）不断解锁新元素。
+              融合本地大模型（Ollama）与图像生成（Stable Diffusion）能力，玩家可探索合成路径并最终发现神兽类元素。
+            </p>
+        </div>
+
+        <div class="project-section">
+            <h4>🔧 我负责的内容</h4>
+            <ul>
+              <li>玩法系统设计：策划元素合成规则、神兽设定与探索流程</li>
+              <li>Unity开发实现：实现拖拽、碰撞检测、元素生成、合成历史等核心功能</li>
+              <li>AI模型集成：调用本地 Ollama 实现合成逻辑，接入 Stable Diffusion 生成神兽图像</li>
+              <li>UI与成就系统：设计成就解锁弹窗、背景切换与历史复用机制</li>
+            </ul>
+        </div>
+
+        <div class="project-section">
+            <h4>✨ 技术亮点</h4>
+            <ul>
+              <li>✅ 本地部署大语言模型（Ollama）驱动元素合成逻辑</li>
+              <li>🎨 Stable Diffusion 实时生成神兽图像并自动替换背景</li>
+              <li>🧩 模块化元素系统，支持拖拽、复制与扩展</li>
+              <li>📜 合成历史可复用，提升探索与策略体验</li>
+              <li>🏆 神兽成就系统带有进度记录与动态提示弹窗</li>
+            </ul>
+        </div>
+
+        <div class="project-section">
+            <h4>🎥 项目展示</h4>
+              <video src="images/AI合成游戏展示.mp4" controls></video>
+            <div class="media-gallery">
+              <img src="images/AI合成游戏截图1.png" alt="AI合成游戏截图1" />
+            </div>
+        </div>
+	<div class="project-section">
+  		<h4>💡 技术栈</h4>
+  		<p>Unity · C# · Ollama · LLM（Llama3） · Stable Diffusion（绘世SD） · JSON API</p>
+	</div>
+    </div>
 </section>
 
   <section id="qna-project">
