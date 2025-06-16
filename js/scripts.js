@@ -1,5 +1,5 @@
 const config = {
-  token: "pat_x8X38MRHfPsV01gD6aHnlJBS379WjiQRe21suebBgKdwktJVPpP1qjTuRR0NFXu4",
+  token: "pat_itmm8s1JXfXgxjNF7AV1cNQIL8aQGyLTGTacltjydxZpkhlCz9NowxvPLwODmffx",
   botId: "7502391040024920114",
   avatars: {
     user: "./images/user-avatar.png",
