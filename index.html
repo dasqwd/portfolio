@@ -62,144 +62,178 @@
         </div>
     </section>
 
-<!-- 独立游戏项目区块 -->
+<!-- 独立游戏项目区块（重构：商业化 / 非商业化） -->
 <section id="independent-games">
-    <h2>🎮 独立游戏项目展示</h2>
-    	<hr>
-	
-	<!-- AI宠物陪伴游戏 -->
-	<div class="game-project">
-	  <h3 class="project-title">🐾 AI宠物陪伴游戏 | AI Pet Companion</h3>
-	  <p class="project-subtitle">
-	    一款结合数值系统与AI生成技术的宠物养成游戏，通过“陪伴+冒险”双重机制带来沉浸式互动体验。
-	  </p>
-	
-	  <div class="project-section">
-	    <h4>🎮 项目简介</h4>
-	    <p>
-	      《灵伴奇缘》是一款以数值系统为核心驱动的AI宠物养成游戏。玩家可领养专属虚拟宠物，并通过喂养、交流、冒险等方式进行培养与互动。
-	      宠物拥有<strong>体力值、生命值、羁绊值与金币等多项状态指标</strong>，这些数值不仅决定了AI宠物的行为模式与语言风格，还通过系统反馈影响其成长走向。
-	    </p>
-	    <p>
-	      冒险系统融合<strong>回合制事件、多轮对话与任务分支</strong>，每一次行动都伴随数值消耗与成长反馈。数值循环机制使游戏形成策略维度，提升了用户的参与感和控制感。
-	    </p>
-	    <p>
-	      为增强沉浸体验，游戏集成了<strong>Stable Diffusion 图像生成</strong>与<strong>SadTalker AI视频生成</strong>能力，宠物能基于状态动态生成外观、表情与语音，强化了“真实陪伴”的感知。
-	    </p>
-	    <p>
-	      🌐 <a href="https://dasqwd.github.io/pet-capture-game/" target="_blank">点击试玩：《灵伴奇缘》网页版</a>
-	    </p>
-	  </div>
-	
-	  <div class="project-section">
-	    <h4>💡 技术栈</h4>
-	    <p>
-	      Coze（多轮智能体 / 知识库 / API集成） · Stable Diffusion（AI图像生成） · SadTalker（AI视频生成）<br/>
-	      JavaScript + HTML5 前端框架 · 状态驱动行为系统 · 数值逻辑与行为反映映射 · 模块化冒险事件系统
-	    </p>
-	  </div>
-	</div>
+  <h2>🎮 独立游戏项目展示</h2>
+  <p style="margin: 6px 0 16px; color:#666;">
+    本页分为两个模块：① <b>微信&抖音小游戏（商业化）</b>：以客流与盈利为目标；② <b>AI 游戏实验（非商业化）</b>：专注游戏内 AI 能力探索与实践。
+  </p>
 
-	<hr>
+  <style>
+    .game-project{margin:24px 0;padding:16px 16px 12px;border:1px solid #eee;border-radius:12px;background:#fff;}
+    .project-title{display:flex;align-items:center;gap:8px;margin:0 0 6px;}
+    .project-subtitle{margin:0 0 12px;color:#666;}
+    .project-section{margin:10px 0 12px;}
+    .platform-badges{display:flex;flex-wrap:wrap;gap:8px;margin:8px 0;}
+    .badge{display:inline-block;padding:2px 8px;font-size:12px;border-radius:999px;background:#f5f5f5;border:1px solid #eee;}
+    video, .media-gallery img{width:100%;border-radius:10px;margin-top:8px}
+    ul{margin:6px 0 0 18px}
+  </style>
 
-	<!-- 仙考不过线 -->
-	<div class="game-project">
-	  <h3 class="project-title">📘 仙考不过线 | 修仙策略消除游戏 <span style="color:orange;">🚧 开发中</span></h3>
-	  <p class="project-subtitle">
-	    一款融合 Roguelike 与策略消除机制的轻量修仙小游戏，挑战“考试式关卡”，策略叠BUFF过境飞升。
-	  </p>
-	
-	  <div class="project-section">
-	    <h4>🎮 项目简介</h4>
-	    <p>
-	      《仙考不过线》是一款以“修仙考试”为主题的策略类消除游戏，灵感来源于《小丑牌》。玩家通过消除修炼灵器积累修为，挑战六大修仙境界：炼体、筑基、结丹、元婴、化神、真仙。
-	    </p>
-	    <p>
-	      游戏采用<strong>图案消除+分数考核+Buff叠加</strong>机制，玩家需利用道具与组合策略应对每回合随机生成的修炼道具，通过高分考核迈入下一个境界。
-	    </p>
-	  </div>
-	
-	  <div class="project-section">
-	    <h4>🧩 核心机制</h4>
-	    <ul>
-	      <li>🔶 消除方式灵活：横、竖方向任意3连即可得分</li>
-	      <li>📈 分数机制：颜色分数 × 形状分数 × Combo倍率 × Buff加成</li>
-	      <li>💥 道具系统：包含换色、变形、区域消除、手动调整格局等</li>
-	      <li>🔁 Roguelike成长：短期/长期Buff、金币购买、随机事件构成局内成长</li>
-	    </ul>
-	  </div>
-	
-	  <div class="project-section">
-	    <h4>🛠 当前进度</h4>
-	    <ul>
-	      <li>✅ 在微信小程序中灰度测试中</li>
-	      <li>🧪 打磨精品UI和成就系统，创造可重复游玩性</li>
-		 <video src="images/消消乐第五阶段效果图.mp4" controls></video>
-	    </ul>
-	  </div>
-	
-	  <div class="project-section">
-	    <h4>💡 技术栈</h4>
-	    <p>
-	      Cocos Creator 3.8.x · JavaScript · JSON数据配置 · 图案识别逻辑 · 关卡状态管理系统
-	    </p>
-	  </div>
-	</div>
-	
-	<hr>
-    
-    <!-- AI合成游戏 -->
-    <div class="game-project">
-        <h3 class="project-title">🧠 AI合成游戏 | AI Synthesis Game</h3>
-        <p class="project-subtitle">
-          一款结合大语言模型与图像生成能力的创意合成探索游戏
-        </p>
+  <!-- ========== 模块一：微信&抖音 小游戏（商业化） ========== -->
+  <hr>
+  <h3>📱 微信&抖音 小游戏（商业化）</h3>
+  <p class="project-subtitle">目标：获取客流、优化留存与变现；平台：微信小程序、抖音小游戏。</p>
 
-        <div class="project-section">
-            <h4>🎮 项目简介</h4>
-            <p>
-              类《Infinite Craft》玩法，通过拖动和合成基础元素（金、木、水、火、土）不断解锁新元素。
-              融合本地大模型（Ollama）与图像生成（Stable Diffusion）能力，玩家可探索合成路径并最终发现神兽类元素。
-            </p>
-        </div>
+  <!-- 仙考不过线 -->
+  <div class="game-project" id="xk-buxian">
+    <h3 class="project-title">📘 仙考不过线 | 修仙策略消除 <span class="badge">微信灰度中</span><span class="badge">抖音筹备</span></h3>
+    <p class="project-subtitle">
+      Roguelike × 策略消除的轻量修仙小游戏，挑战“考试式关卡”，通过组合与叠BUFF完成飞升。
+    </p>
 
-        <div class="project-section">
-            <h4>🔧 我负责的内容</h4>
-            <ul>
-              <li>玩法系统设计：策划元素合成规则、神兽设定与探索流程</li>
-              <li>Unity开发实现：实现拖拽、碰撞检测、元素生成、合成历史等核心功能</li>
-              <li>AI模型集成：调用本地 Ollama 实现合成逻辑，接入 Stable Diffusion 生成神兽图像</li>
-              <li>UI与成就系统：设计成就解锁弹窗、背景切换与历史复用机制</li>
-            </ul>
-        </div>
-
-        <div class="project-section">
-            <h4>✨ 技术亮点</h4>
-            <ul>
-              <li>✅ 本地部署大语言模型（Ollama）驱动元素合成逻辑</li>
-              <li>🎨 Stable Diffusion 实时生成神兽图像并自动替换背景</li>
-              <li>🧩 模块化元素系统，支持拖拽、复制与扩展</li>
-              <li>📜 合成历史可复用，提升探索与策略体验</li>
-              <li>🏆 神兽成就系统带有进度记录与动态提示弹窗</li>
-            </ul>
-        </div>
-
-        <div class="project-section">
-            <h4>🎥 项目展示</h4>
-              <video src="images/AI合成游戏展示.mp4" controls></video>
-            <div class="media-gallery">
-              <img src="images/AI合成游戏截图1.png" alt="AI合成游戏截图1" />
-            </div>
-        </div>
-	<div class="project-section">
-  		<h4>💡 技术栈</h4>
-  		<p>Unity · C# · Ollama · LLM（Llama3） · Stable Diffusion（绘世SD） · JSON API</p>
-	</div>
+    <div class="project-section">
+      <h4>🎮 项目简介</h4>
+      <p>
+        面向微信/抖音平台的“修仙题材 消除 × Roguelike”。围绕<strong>四档难度（Simple/Normal/Hell/Nightmare）</strong>与
+        <strong>多条成长线</strong>（角色等级、灵宠被动、灵器一次性&成长、秘籍加成、修炼组合、材料合成），塑造 8–12 分钟短局的高复玩循环；
+        关底配置差异化 <strong>BOSS 卡点</strong> 与 <strong>商店权重/低保底/同类加成</strong>，引导关键决策与变现。
+      </p>
+      <div class="platform-badges">
+        <span class="badge">微信：流量主（激励/插屏/格子/横幅）</span>
+        <span class="badge">抖音：激励视频 API</span>
+      </div>
     </div>
+
+    <div class="project-section">
+      <h4>🧩 核心机制</h4>
+      <ul>
+        <li>🔶 消除即得分：<b>颜色分/形状分×连击×组合倍率×Buff</b></li>
+        <li>💥 局内成长：短期/长期 Buff、金币购买、随机事件、BOSS 卡点</li>
+        <li>🛒 商店策略：权重/暗保底/同类加成可配置化</li>
+      </ul>
+    </div>
+
+    <div class="project-section">
+      <h4>🛠 当前进度</h4>
+      <ul>
+        <li>✅ <b>已在微信小程序灰度测试</b>；四难度可测</li>
+        <li>🎯 正在集中调整 <b>UI 表现</b> 与 <b>成就系统</b>，优化新手引导与动效</li>
+      </ul>
+      <video src="images/消消乐第五阶段效果图.mp4" controls></video>
+    </div>
+
+    <div class="project-section">
+      <h4>💡 技术栈</h4>
+      <p>Cocos Creator 3.8.x · TypeScript/JavaScript · JSON 数据配置 · 关卡/状态管理 · 动效与资源分包</p>
+    </div>
+  </div>
+
+  <!-- 符石裂界（回合制卡牌） -->
+  <div class="game-project" id="rune-rift">
+    <h3 class="project-title">🪨 符石裂界 | 回合制卡牌 × Roguelike <span class="badge">原型完成</span><span class="badge">多职业</span></h3>
+    <p class="project-subtitle">
+      源于“元素魔法”世界观的回合制卡牌项目；多职业×多成长线，弱点破坏与前后排站位驱动策略。
+    </p>
+
+    <div class="project-section">
+      <h4>🎮 项目简介</h4>
+      <p>
+        面向微信/抖音平台的回合制卡牌：围绕<strong>多职业</strong>（法师/圣骑士/射手/刺客/牧师/术士等）与
+        <strong>多成长线</strong>（职业等级、技能树/专精、天赋符印、符器/装备、材料/成就）展开。
+        战术轴为<strong>弱点破坏（Break）+ 前后排站位</strong>：命中要害进入易伤窗口，配合穿透/嘲讽/越位技能形成爆发回合。
+      </p>
+    </div>
+
+    <div class="project-section">
+      <h4>🧩 核心机制</h4>
+      <ul>
+        <li>🃏 回合制出牌：抽换弃循环、能量与疲劳管理、连锁与计时</li>
+        <li>🎯 弱点系统：部位弱点/护盾/免疫/沉默等词缀可配置，Break 进入易伤</li>
+        <li>🧱 站位博弈：前后排、穿透/嘲讽/越位、区域技能与目标优先级</li>
+      </ul>
+    </div>
+
+    <div class="project-section">
+      <h4>🛠 当前进度</h4>
+      <ul>
+        <li>✅ 核心玩法框架完成：回合流程、弱点破坏、站位规则与基础 AI</li>
+        <li>🧪 职业雏形与卡池原型已就绪，教学/UI/动效打磨中</li>
+      </ul>
+      <video src="images/回合制游戏第一阶段效果图.mp4" controls></video>
+    </div>
+
+    <div class="project-section">
+      <h4>💡 技术栈</h4>
+      <p>Cocos Creator 3.8.x · TypeScript · 数据驱动卡牌/词缀系统 · 状态/结算口径（BASE/ADD/MUL/STRUCTURE/FINALIZE）</p>
+    </div>
+  </div>
+
+  <!-- ========== 模块二：AI 游戏实验（非商业化） ========== -->
+  <hr>
+  <h3>🧪 AI 游戏实验（非商业化）</h3>
+  <p class="project-subtitle">目标：探索“AI × 玩法/美术/叙事”的游戏能力，不涉及商业化。</p>
+
+  <!-- AI宠物陪伴游戏 -->
+  <div class="game-project" id="ai-pet">
+    <h3 class="project-title">🐾 灵伴奇缘 | AI宠物陪伴游戏</h3>
+    <p class="project-subtitle">“陪伴+冒险”双机制；行为受体力/生命/羁绊/金币等数值驱动，形象与情绪由 AI 动态生成。</p>
+
+    <div class="project-section">
+      <h4>🎮 项目简介</h4>
+      <p>
+        玩家领养专属虚拟宠物，通过喂养、交流、冒险等培养互动。冒险融合<strong>回合制事件、多轮对话、任务分支</strong>，
+        行动与反馈绑定数值循环；集成 <strong>Stable Diffusion</strong> 与 <strong>SadTalker</strong>，根据状态生成外观/表情/语音。
+        🌐 <a href="https://dasqwd.github.io/pet-capture-game/" target="_blank">点击试玩：《灵伴奇缘》网页版</a>
+      </p>
+    </div>
+
+    <div class="project-section">
+      <h4>💡 技术栈</h4>
+      <p>Coze（多轮智能体/知识库/API） · Stable Diffusion · SadTalker · JS/HTML5 · 状态驱动行为/事件模块</p>
+    </div>
+  </div>
+
+  <!-- AI合成游戏 -->
+  <div class="game-project" id="ai-synthesis">
+    <h3 class="project-title">🧠 AI合成游戏 | AI Synthesis Game</h3>
+    <p class="project-subtitle">类《Infinite Craft》合成探索：本地 LLM + 图像生成驱动的创意玩法。</p>
+
+    <div class="project-section">
+      <h4>🎮 项目简介</h4>
+      <p>
+        通过拖动并合成基础元素（金木水火土）不断解锁新元素；结合本地 <b>Ollama</b> 与 <b>Stable Diffusion</b>，
+        自动生成神兽图像与背景，支持合成历史复用与策略探索。
+      </p>
+    </div>
+
+    <div class="project-section">
+      <h4>🔧 我负责的内容</h4>
+      <ul>
+        <li>玩法系统设计：元素合成规则、神兽设定、探索流程</li>
+        <li>Unity 开发：拖拽/碰撞、元素生成、合成历史</li>
+        <li>AI 集成：Ollama（Llama3）合成逻辑、SD 生成神兽图像</li>
+        <li>UI 与成就：解锁弹窗、进度记录、背景切换</li>
+      </ul>
+    </div>
+
+    <div class="project-section">
+      <h4>🎥 项目展示</h4>
+      <video src="images/AI合成游戏展示.mp4" controls></video>
+      <div class="media-gallery">
+        <img src="images/AI合成游戏截图1.png" alt="AI合成游戏截图1" />
+      </div>
+    </div>
+
+    <div class="project-section">
+      <h4>💡 技术栈</h4>
+      <p>Unity · C# · Ollama · LLM（Llama3） · Stable Diffusion（绘世SD） · JSON API</p>
+    </div>
+  </div>
 </section>
 
   <section id="qna-project">
-<h2 class="project-title"> 祖龙娱乐 - AI智能助手《诺玛》</h2>
+<h2 class="project-title"> 祖龙娱乐 -《龙族：卡塞尔之门》</h2>
 <p class="project-subtitle">
   为 二次元类型的《龙族：卡塞尔之门》游戏中《诺玛》角色打造的 AI 对话助手，伪装为 NPC 与玩家互动，显著提升游戏的社交氛围与热度。
 </p>
@@ -384,6 +418,7 @@
     <script src="js/scripts.js"></script>
 </body>
 </html>
+
 
 
 
