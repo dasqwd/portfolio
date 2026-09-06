@@ -1,413 +1,338 @@
 <!DOCTYPE html>
-<html lang="zh-CN"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>李鹏程｜游戏玩法策划 · UGC产品 · AI研发实践</title><link rel="stylesheet" href="css/styles.css">
-<style>
-:root{
-  --bg-0:#0c1630;
-  --bg-1:#122044;
-  --bg-2:#182957;
-  --panel:rgba(20,35,73,.76);
-  --panel-strong:rgba(18,31,66,.90);
-  --line:rgba(121,176,255,.20);
-  --line-bright:rgba(121,176,255,.42);
-  --text:#f5f8ff;
-  --sub:#b8c7e3;
-  --blue:#73c7ff;
-  --cyan:#75f0e7;
-  --violet:#b393ff;
-  --gold:#f4cf77;
-  --shadow:0 24px 70px rgba(5,12,30,.28);
-}
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="李鹏程个人作品集｜游戏玩法策划、UGC产品、AI辅助研发与独立游戏开发。">
+  <title>李鹏程｜游戏玩法策划 · UGC产品 · AI研发实践</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <div class="bg-orb orb-a"></div>
+  <div class="bg-orb orb-b"></div>
 
-*{box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{
-  font-family:Arial,"Microsoft YaHei",sans-serif;
-  margin:0;
-  color:var(--text);
-  overflow-x:hidden;
-  background:
-    radial-gradient(circle at 12% 10%, rgba(62,143,255,.34), transparent 29%),
-    radial-gradient(circle at 88% 18%, rgba(122,86,255,.24), transparent 25%),
-    radial-gradient(circle at 50% 92%, rgba(0,214,202,.12), transparent 34%),
-    linear-gradient(150deg,var(--bg-0) 0%,var(--bg-1) 48%,#101b3b 100%);
-  background-attachment:fixed;
-}
+  <header class="site-header">
+    <nav class="nav-wrap">
+      <a class="brand" href="#home">LPC<span>.GAME</span></a>
+      <ul class="nav-list">
+        <li><a href="#home">首页</a></li>
+        <li><a href="#work">精选项目</a></li>
+        <li><a href="#ai">AI工作流</a></li>
+        <li><a href="#exp">经历</a></li>
+        <li><a href="#about">关于我</a></li>
+        <li><a href="#contact">联系</a></li>
+      </ul>
+    </nav>
+  </header>
 
-/* 科技网格背景 */
-body::before{
-  content:"";
-  position:fixed;
-  inset:0;
-  z-index:-2;
-  pointer-events:none;
-  background-image:
-    linear-gradient(rgba(117,190,255,.055) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(117,190,255,.055) 1px, transparent 1px);
-  background-size:44px 44px;
-  mask-image:linear-gradient(to bottom,rgba(0,0,0,.8),rgba(0,0,0,.18));
-}
+  <main>
+    <section id="home" class="hero section-shell">
+      <div class="hero-content">
+        <div class="kicker">GAME DESIGN · UGC · AI WORKFLOW</div>
+        <h1>李鹏程</h1>
+        <h2>游戏玩法策划 <span>/</span> UGC产品 <span>/</span> 独立开发</h2>
+        <p class="hero-desc">
+          9年游戏与UGC平台经验，覆盖休闲玩法、MMORPG/卡牌、UGC编辑器与独立小游戏开发。
+          我关注玩家为什么愿意继续、怎样降低理解成本、怎样让玩法快速落地，
+          以及如何把验证过的经验沉淀为可复用的流程、模板与创作能力。
+        </p>
 
-/* 柔和扫描光 */
-body::after{
-  content:"";
-  position:fixed;
-  width:58vw;
-  height:58vw;
-  left:-18vw;
-  top:18vh;
-  z-index:-1;
-  pointer-events:none;
-  border-radius:50%;
-  background:radial-gradient(circle,rgba(76,161,255,.16),transparent 66%);
-  filter:blur(18px);
-  animation:floatGlow 14s ease-in-out infinite alternate;
-}
-@keyframes floatGlow{
-  from{transform:translate3d(0,0,0)}
-  to{transform:translate3d(12vw,8vh,0)}
-}
+        <div class="chips">
+          <span class="chip">玩法内容生产</span>
+          <span class="chip">UGC / Roblox</span>
+          <span class="chip">新手与心流</span>
+          <span class="chip">活动 / 系统 / 数值</span>
+          <span class="chip">Cocos 原型</span>
+          <span class="chip">AI辅助研发</span>
+        </div>
 
-header{
-  position:sticky;
-  top:0;
-  z-index:50;
-  backdrop-filter:blur(18px);
-  background:linear-gradient(180deg,rgba(12,22,48,.92),rgba(12,22,48,.72));
-  border-bottom:1px solid rgba(120,181,255,.16);
-  box-shadow:0 8px 28px rgba(2,8,25,.16);
-  padding:13px 18px;
-}
-nav ul{
-  display:flex;
-  gap:9px;
-  justify-content:center;
-  flex-wrap:wrap;
-  list-style:none;
-  margin:0;
-  padding:0;
-}
-nav a{
-  position:relative;
-  display:block;
-  color:#dce9ff;
-  text-decoration:none;
-  padding:8px 14px;
-  border-radius:10px;
-  font-size:14px;
-  transition:.2s;
-}
-nav a:hover{
-  color:#fff;
-  background:rgba(115,199,255,.10);
-  box-shadow:inset 0 0 0 1px rgba(115,199,255,.18);
-}
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#work">查看代表项目</a>
+          <a class="btn btn-ghost" href="#ai">查看AI工作流</a>
+        </div>
+      </div>
 
-section{
-  max-width:1160px;
-  margin:auto;
-  padding:68px 24px;
-  position:relative;
-}
-section:not(#home)::before{
-  content:"";
-  position:absolute;
-  top:0;
-  left:24px;
-  right:24px;
-  height:1px;
-  background:linear-gradient(90deg,transparent,rgba(117,190,255,.26),transparent);
-}
+      <aside class="hero-panel">
+        <div class="panel-label">PROFILE SNAPSHOT</div>
+        <div class="stat-grid">
+          <div class="stat"><strong>9年</strong><span>游戏 / 产品经验</span></div>
+          <div class="stat"><strong>UGC</strong><span>平台 + 创作者双视角</span></div>
+          <div class="stat"><strong>Cocos</strong><span>可直接跑玩法原型</span></div>
+          <div class="stat"><strong>AI</strong><span>概念 / 原型 / Coding</span></div>
+        </div>
+      </aside>
+    </section>
 
-.hero{
-  min-height:76vh;
-  display:grid;
-  place-items:center;
-  text-align:center;
-  padding-top:86px;
-}
-.hero::before{
-  content:"";
-  position:absolute;
-  width:min(780px,86vw);
-  height:min(420px,52vw);
-  border-radius:50%;
-  background:
-    radial-gradient(circle at center,rgba(77,153,255,.19),rgba(116,86,255,.06) 42%,transparent 72%);
-  filter:blur(10px);
-  z-index:-1;
-}
-.hero h1{
-  font-size:clamp(42px,6vw,76px);
-  line-height:1.08;
-  margin:12px 0 20px;
-  letter-spacing:-.03em;
-  text-shadow:0 0 32px rgba(85,158,255,.22);
-}
-.hero h1 span,
-.gradient-title{
-  background:linear-gradient(90deg,#84d7ff 0%,#78f1e8 36%,#baa2ff 76%,#8bc8ff 100%);
-  -webkit-background-clip:text;
-  background-clip:text;
-  color:transparent;
-}
-.hero p{
-  max-width:850px;
-  color:#c2d0e8;
-  line-height:1.9;
-  font-size:17px;
-}
-.hero-kicker{
-  display:inline-flex;
-  align-items:center;
-  gap:9px;
-  color:#83d9ff;
-  font-weight:700;
-  letter-spacing:.16em;
-  font-size:12px;
-  text-transform:uppercase;
-}
-.hero-kicker::before,
-.hero-kicker::after{
-  content:"";
-  width:38px;
-  height:1px;
-  background:linear-gradient(90deg,transparent,#77dcff);
-}
-.hero-kicker::after{background:linear-gradient(90deg,#77dcff,transparent)}
+    <section id="work" class="section-shell">
+      <div class="section-head">
+        <div>
+          <div class="kicker">SELECTED WORK</div>
+          <h2>精选项目</h2>
+        </div>
+        <p>只展示最能证明“玩法、UGC、AI与落地能力”的项目。</p>
+      </div>
 
-.chips,.chip-row,.filter-tabs{
-  display:flex;
-  gap:9px;
-  justify-content:center;
-  flex-wrap:wrap;
-  margin-top:22px;
-}
-.chip{
-  border:1px solid rgba(126,187,255,.24);
-  padding:7px 12px;
-  border-radius:999px;
-  color:#deebff;
-  background:rgba(81,137,218,.08);
-  box-shadow:inset 0 0 18px rgba(91,171,255,.035);
-}
+      <div class="tabs" role="tablist" aria-label="项目筛选">
+        <button class="active" data-filter="all">全部</button>
+        <button data-filter="gameplay">玩法设计</button>
+        <button data-filter="ugc">UGC / 社交</button>
+        <button data-filter="ai">AI实践</button>
+        <button data-filter="commercial">商业项目</button>
+      </div>
 
-.section-head{
-  display:flex;
-  justify-content:space-between;
-  gap:24px;
-  align-items:end;
-  margin-bottom:26px;
-}
-.section-head h2{
-  font-size:36px;
-  margin:6px 0 0;
-}
-.section-head p{
-  max-width:650px;
-  color:var(--sub);
-  line-height:1.75;
-  margin:0;
-}
+      <div class="project-grid" id="grid">
+        <article class="project-card featured" data-cat="ugc commercial">
+          <div class="card-topline">
+            <div class="kicker">UGC PLATFORM · FEATURED CASE</div>
+            <span class="featured-tag">FEATURED</span>
+          </div>
+          <h3>口袋方舟｜UGC游戏创作平台</h3>
+          <p>
+            基于233乐园生态参与从0到1建设轻量UGC创作平台，核心目标是让非专业创作者
+            更快完成“创作 → 校验 → 发布 → 分发 → 游玩”的完整链路。
+          </p>
+          <div class="meta">
+            <span>角色 / 捏脸</span><span>模板 / 预制体</span><span>NPC行为</span>
+            <span>UGC广场</span><span>创作者生态</span>
+          </div>
 
-.grid,.project-grid{
-  display:grid;
-  grid-template-columns:repeat(2,minmax(0,1fr));
-  gap:20px;
-}
-.card,.project-card,.info-panel{
-  position:relative;
-  overflow:hidden;
-  background:
-    linear-gradient(145deg,rgba(32,54,106,.80),rgba(18,31,66,.78));
-  border:1px solid var(--line);
-  border-radius:20px;
-  padding:22px;
-  box-shadow:var(--shadow);
-  backdrop-filter:blur(12px);
-  transition:transform .24s ease,border-color .24s ease,box-shadow .24s ease;
-}
-.card::before,.project-card::before,.info-panel::before{
-  content:"";
-  position:absolute;
-  inset:0;
-  pointer-events:none;
-  background:
-    linear-gradient(120deg,rgba(255,255,255,.055),transparent 22%,transparent 70%,rgba(92,189,255,.04));
-}
-.card:hover,.project-card:hover{
-  transform:translateY(-5px);
-  border-color:var(--line-bright);
-  box-shadow:0 26px 70px rgba(4,12,32,.35),0 0 0 1px rgba(111,201,255,.05);
-}
+          <div class="detail-grid">
+            <div>
+              <h4>我的工作重点</h4>
+              <ul>
+                <li><b>UGC研究：</b>长期研究 Roblox、蛋仔工坊、迷你世界、Core 等生态，并体验拆解近百款 Roblox 游戏 / UGC 内容。</li>
+                <li><b>角色与捏脸：</b>重点负责角色、捏脸、角色模板、动作与交互相关能力。</li>
+                <li><b>交互与社交：</b>参与UGC广场及玩家互动需求设计，涉及身份展示、拿取物品、牵手等交互动作，并分析合作、竞争和公共空间如何促成关系发生。</li>
+                <li><b>能力沉淀：</b>将角色、NPC、UI、后处理、水体、天气等能力抽象为模板和预制体。</li>
+              </ul>
+            </div>
+            <div>
+              <h4>项目结果</h4>
+              <ul>
+                <li>支撑200+ UGC作品 / 游戏上线。</li>
+                <li>累计沉淀数百个可复用预制体 / 模板。</li>
+                <li>代表性模板能力使用率提升约18%（内部口径）。</li>
+              </ul>
+            </div>
+          </div>
 
-.featured,.project-card.featured{
-  grid-column:1 / -1;
-  background:
-    radial-gradient(circle at 86% 18%,rgba(99,102,241,.17),transparent 31%),
-    linear-gradient(145deg,rgba(30,57,111,.88),rgba(16,30,65,.86));
-}
-.featured::after,.project-card.featured::after{
-  content:"FEATURED";
-  position:absolute;
-  right:18px;
-  top:16px;
-  font-size:10px;
-  letter-spacing:.18em;
-  color:rgba(152,221,255,.55);
-}
+          <div class="gallery gallery-3">
+            <img src="images/展心展力+捏脸.png" alt="口袋方舟捏脸系统">
+            <img src="images/展心展力+天空球.png" alt="天气与场景能力">
+            <img src="images/展心展力+逻辑对象.png" alt="逻辑对象能力">
+          </div>
+        </article>
 
-.card h3,.project-card h3{font-size:25px;margin:7px 0 8px}
-.card p,.card li,.project-card p,.project-card li,.info-panel p,.info-panel li{
-  color:#c8d6ed;
-  line-height:1.78;
-}
-.project-meta{
-  display:flex;
-  flex-wrap:wrap;
-  gap:7px;
-  margin:13px 0 3px;
-}
-.project-meta span,.badge{
-  font-size:12px;
-  padding:5px 9px;
-  border-radius:999px;
-  border:1px solid rgba(126,187,255,.20);
-  background:rgba(92,149,232,.09);
-  color:#dceaff;
-}
-.project-block{
-  margin-top:18px;
-  padding-top:16px;
-  border-top:1px solid rgba(130,190,255,.13);
-}
-.project-block h4{margin:0 0 7px;color:#edf6ff}
-.eyebrow{
-  color:#75e6e1;
-  font-size:11px;
-  letter-spacing:.15em;
-  text-transform:uppercase;
-  font-weight:700;
-}
+        <article class="project-card featured" data-cat="gameplay ai commercial">
+          <div class="card-topline">
+            <div class="kicker">GAMEPLAY · ONBOARDING · FLOW</div>
+            <span class="featured-tag">FEATURED</span>
+          </div>
+          <h3>海底刺鱼｜场景、新手与玩家心流设计</h3>
+          <p>
+            独立负责新手流程与场景方向，从大量游戏 / 影视参考中提炼海底探索、鱼群运动、
+            场景引导和阶段演绎方式，并落到流程、事件、配置和实机体验。
+          </p>
+          <div class="meta">
+            <span>新手流程</span><span>场景设计</span><span>事件演绎</span>
+            <span>鱼群配置</span><span>心流</span><span>AI概念图</span>
+          </div>
+          <div class="detail-grid">
+            <div>
+              <h4>设计方法</h4>
+              <ul>
+                <li><b>体验路径：</b>围绕“探索 → 发现 → 行动 → 阶段惊喜”设计新手节奏。</li>
+                <li><b>场景与引导：</b>通过地标、地形、鱼群运动、事件触发和镜头表现引导玩家。</li>
+                <li><b>配置落地：</b>明确鱼种、数量、大小、颜色、游动方向和速度，并参与场景搭建。</li>
+                <li><b>AI辅助：</b>快速制作场景概念图、地图点位和玩法 / UI 效果图，在正式制作前对齐方向。</li>
+              </ul>
+            </div>
+            <div>
+              <h4>公开展示原则</h4>
+              <p class="notice">
+                🔒 商业项目受保密协议限制：仅展示可公开的方法、流程和部分推广素材，
+                不展示内部配置、未公开版本和敏感数据。
+              </p>
+            </div>
+          </div>
+        </article>
 
-.media-gallery{
-  display:grid;
-  grid-template-columns:repeat(3,minmax(0,1fr));
-  gap:10px;
-}
-.media-gallery img,.project-card video,.card video{
-  width:100%;
-  border-radius:13px;
-  border:1px solid rgba(137,195,255,.20);
-  background:#102044;
-}
-.confidential{
-  margin-top:15px;
-  padding:12px 14px;
-  border-radius:13px;
-  border:1px dashed rgba(244,207,119,.40);
-  background:rgba(244,207,119,.07);
-  color:#f2dfaa;
-}
+        <article class="project-card" data-cat="gameplay ai">
+          <div class="kicker">INDIE GAME · COCOS</div>
+          <h3>钓鱼消消消｜三消 × 轻经营</h3>
+          <p>
+            面向微信 / 抖音小游戏的独立项目，以约1分钟短局提供即时操作与收益反馈，
+            再通过经营、成长、任务与成就承接长期目标。
+          </p>
+          <div class="meta">
+            <span>Cocos Creator</span><span>TypeScript</span><span>玩法 / 数值</span><span>灰度验证</span>
+          </div>
+          <h4>核心循环</h4>
+          <p>钓鱼三消 → 获得鱼类 / 资源 → 经营变现 → 成长升级 → 再次游玩。</p>
+          <ul>
+            <li>独立完成核心玩法、成长与收益结构、新手教学、UI / 交互和原型开发。</li>
+            <li>将经营参数、成长曲线、任务与奖励配置化，便于快速调优。</li>
+            <li>使用AI辅助需求拆解、脚本开发、素材方案和测试回归。</li>
+          </ul>
+        </article>
 
-.filter-tab{
-  border:1px solid rgba(126,187,255,.22);
-  background:rgba(84,133,213,.08);
-  color:#d9e7fc;
-  padding:9px 14px;
-  border-radius:999px;
-  cursor:pointer;
-}
-.filter-tab.active{
-  color:#071428;
-  font-weight:700;
-  border-color:transparent;
-  background:linear-gradient(90deg,#8cdcff,#7ff1df);
-  box-shadow:0 8px 28px rgba(94,209,255,.18);
-}
-.hidden-by-filter{display:none!important}
+        <article class="project-card" data-cat="gameplay commercial">
+          <div class="kicker">LIVE GAME · ACTIVITY DESIGN</div>
+          <h3>龙族：卡塞尔之门｜活动 / 系统策划</h3>
+          <p>
+            在祖龙科技参与二次元卡牌手游研发，重点负责尼伯龙根系列活动、
+            社团争霸、春节 / 百日庆等活动内容的设计、落地与验收。
+          </p>
+          <div class="meta">
+            <span>活动设计</span><span>数值 / 掉落</span><span>UI / UMG</span><span>上线验收</span>
+          </div>
+          <ul>
+            <li>按“目标 → 节奏 → 产出 → 反馈”拆解活动规则、奖励、商店与参与路径。</li>
+            <li>春节活动围绕日活参与、节日沉淀与转化、分层付费承接、社交传播回流拆分不同模块。</li>
+            <li>负责PRD、流程图、配置、资源导入、UMG布局、联调测试与上线验收。</li>
+          </ul>
+          <div class="gallery gallery-1">
+            <img src="images/祖龙娱乐1.png" alt="龙族：卡塞尔之门项目展示">
+          </div>
+        </article>
 
-.workflow{
-  display:grid;
-  grid-template-columns:repeat(6,1fr);
-  gap:10px;
-}
-.workflow div{
-  min-height:116px;
-  display:flex;
-  flex-direction:column;
-  justify-content:center;
-  padding:14px 10px;
-  text-align:center;
-  border:1px solid rgba(126,187,255,.18);
-  border-radius:16px;
-  background:
-    linear-gradient(155deg,rgba(40,68,126,.72),rgba(18,34,72,.62));
-  position:relative;
-}
-.workflow div:not(:last-child)::after{
-  content:"›";
-  position:absolute;
-  right:-10px;
-  top:40%;
-  color:#84d7ff;
-  font-size:24px;
-  z-index:2;
-}
-.workflow b{margin-bottom:7px;color:#f7fbff}
-.workflow span{color:#afbdd4;font-size:12px;line-height:1.5}
+        <article class="project-card" data-cat="ai">
+          <div class="kicker">AI GAME EXPERIMENT</div>
+          <h3>AI合成游戏｜LLM驱动的玩法实验</h3>
+          <p>
+            类 Infinite Craft 的合成探索实验：通过本地 Ollama / LLM 动态生成合成结果，
+            并结合 Stable Diffusion 生成对应视觉内容。
+          </p>
+          <div class="meta">
+            <span>Unity</span><span>C#</span><span>Ollama</span><span>Stable Diffusion</span>
+          </div>
+          <ul>
+            <li>玩法规则、合成逻辑与探索结构设计。</li>
+            <li>Unity拖拽 / 碰撞 / 元素生成与历史记录。</li>
+            <li>LLM调用与图像生成工作流集成。</li>
+          </ul>
+          <video src="images/AI合成游戏展示.mp4" controls></video>
+        </article>
 
-.timeline{display:grid;gap:14px}
-.timeline-item{
-  display:grid;
-  grid-template-columns:170px 1fr;
-  gap:22px;
-  padding:20px 22px;
-  border:1px solid rgba(124,187,255,.14);
-  border-left:3px solid rgba(117,226,231,.55);
-  border-radius:5px 17px 17px 5px;
-  background:rgba(19,34,73,.60);
-}
-.timeline-item time{color:#87dbff;font-weight:700}
+        <article class="project-card" data-cat="gameplay ai">
+          <div class="kicker">SYSTEM DESIGN · INDIE PROTOTYPE</div>
+          <h3>符石裂界｜回合制卡牌 × 弱点破坏</h3>
+          <p>
+            自研元素魔法世界观下的回合制卡牌原型，以职业差异、前后排站位、
+            弱点破坏与BOSS词缀构建策略空间。
+          </p>
+          <div class="meta">
+            <span>战斗系统</span><span>职业 / 卡牌</span><span>Break</span>
+            <span>BOSS词缀</span><span>Cocos Creator</span>
+          </div>
+          <ul>
+            <li><b>弱点破坏：</b>命中特定部位后进入易伤窗口，制造准备与爆发节奏。</li>
+            <li><b>站位博弈：</b>通过前后排、穿透、嘲讽、越位等规则形成多解。</li>
+            <li><b>配置化：</b>职业、卡牌、词缀、部位弱点与关键数值均采用配置化结构。</li>
+            <li><b>独立落地：</b>自行完成玩法设计、Cocos原型、基础AI、UI反馈和实机测试。</li>
+          </ul>
+          <video src="images/回合制游戏第一阶段效果图.mp4" controls></video>
+        </article>
+      </div>
+    </section>
 
-.about-grid{
-  display:grid;
-  grid-template-columns:repeat(2,minmax(0,1fr));
-  gap:20px;
-}
-.info-panel{padding:22px}
+    <section id="ai" class="section-shell">
+      <div class="section-head">
+        <div>
+          <div class="kicker">AI × GAME DEVELOPMENT</div>
+          <h2>我如何使用 AI</h2>
+        </div>
+        <p>AI不是独立标签，而是进入调研、设计、表达、原型和验收流程，帮助更快把抽象想法变成可讨论、可测试、可落地的结果。</p>
+      </div>
 
-.contact-list a{color:#83d9ff}
-footer{
-  padding:30px 20px 48px;
-  text-align:center;
-  color:#93a7c6;
-  border-top:1px solid rgba(124,187,255,.10);
-}
+      <div class="workflow">
+        <div><b>01 目标 / 问题</b><small>定义玩家问题与版本目标</small></div>
+        <div><b>02 竞品 / 发散</b><small>大模型归纳参考与方案空间</small></div>
+        <div><b>03 可视化</b><small>流程图、概念图、UI / 场景效果图</small></div>
+        <div><b>04 原型</b><small>Cocos / Codex 快速验证</small></div>
+        <div><b>05 正式研发</b><small>需求、配置、资源清单</small></div>
+        <div><b>06 实机验收</b><small>对照目标持续收敛</small></div>
+      </div>
+    </section>
 
-@media(max-width:900px){
-  .grid,.project-grid,.about-grid{grid-template-columns:1fr}
-  .featured,.project-card.featured{grid-column:auto}
-  .workflow{grid-template-columns:repeat(2,1fr)}
-  .workflow div:not(:last-child)::after{display:none}
-  .timeline-item{grid-template-columns:1fr}
-  .media-gallery{grid-template-columns:1fr}
-  .section-head{align-items:start;flex-direction:column}
-}
-</style>
-</head><body>
-<header><nav><ul><li><a href="#home">首页</a></li><li><a href="#work">精选项目</a></li><li><a href="#ai">AI工作流</a></li><li><a href="#exp">经历</a></li><li><a href="#about">关于我</a></li><li><a href="#contact">联系</a></li></ul></nav></header>
-<section id="home" class="hero"><div><div class="kicker">GAME DESIGN · UGC · AI WORKFLOW</div><h1>李鹏程</h1><h2>游戏玩法策划 / UGC产品 / 独立开发</h2><p>9年游戏与UGC平台经验，覆盖休闲玩法、MMORPG/卡牌、UGC编辑器与独立小游戏开发。我关注玩家为什么愿意继续、怎样降低理解成本、怎样让玩法快速落地，以及如何把验证过的经验沉淀为可复用的流程、模板与创作能力。</p><div class="chips"><span class="chip">玩法内容生产</span><span class="chip">UGC / Roblox</span><span class="chip">新手与心流</span><span class="chip">活动 / 系统 / 数值</span><span class="chip">Cocos 原型</span><span class="chip">AI辅助研发</span></div></div></section>
-<section id="work"><div class="kicker">SELECTED WORK</div><h2>精选项目</h2><p>只展示最能证明“玩法、UGC、AI与落地能力”的项目。</p><div class="tabs"><button class="active" data-filter="all">全部</button><button data-filter="gameplay">玩法设计</button><button data-filter="ugc">UGC / 社交</button><button data-filter="ai">AI实践</button><button data-filter="commercial">商业项目</button></div><div class="grid" id="grid">
-<article class="card featured" data-cat="ugc commercial"><div class="kicker">UGC PLATFORM · FEATURED CASE</div><h3>口袋方舟｜UGC游戏创作平台</h3><p>基于233乐园生态参与从0到1建设轻量UGC创作平台，核心目标是让非专业创作者更快完成“创作→校验→发布→分发→游玩”的完整链路。</p><div class="meta"><span>角色/捏脸</span><span>模板/预制体</span><span>NPC行为</span><span>UGC广场</span><span>创作者生态</span></div><h4>我的工作重点</h4><ul><li><b>UGC研究：</b>长期研究 Roblox、蛋仔工坊、迷你世界、Core 等生态，并体验拆解近百款 Roblox 游戏 / UGC 内容。</li><li><b>角色与捏脸：</b>重点负责角色、捏脸、角色模板、动作与交互相关能力。</li><li><b>交互与社交：</b>参与UGC广场及玩家互动需求设计，涉及身份展示、拿取物品、牵手等交互动作，并分析合作、竞争和公共空间如何促成关系发生。</li><li><b>能力沉淀：</b>将角色、NPC、UI、后处理、水体、天气等能力抽象为模板和预制体。</li></ul><h4>项目结果</h4><ul><li>支撑200+ UGC作品/游戏上线。</li><li>累计沉淀数百个可复用预制体/模板。</li><li>代表性模板能力使用率提升约18%（内部口径）。</li></ul><div class="gallery"><img src="images/展心展力+捏脸.png" alt="口袋方舟捏脸系统"><img src="images/展心展力+天空球.png" alt="天气与场景能力"><img src="images/展心展力+逻辑对象.png" alt="逻辑对象能力"></div></article>
-<article class="card featured" data-cat="gameplay ai commercial"><div class="kicker">GAMEPLAY · ONBOARDING · FLOW</div><h3>海底刺鱼｜场景、新手与玩家心流设计</h3><p>独立负责新手流程与场景方向，从大量游戏/影视参考中提炼海底探索、鱼群运动、场景引导和阶段演绎方式，并落到流程、事件、配置和实机体验。</p><div class="meta"><span>新手流程</span><span>场景设计</span><span>事件演绎</span><span>鱼群配置</span><span>心流</span><span>AI概念图</span></div><ul><li><b>体验路径：</b>围绕“探索→发现→行动→阶段惊喜”设计新手节奏。</li><li><b>场景与引导：</b>通过地标、地形、鱼群运动、事件触发和镜头表现引导玩家。</li><li><b>配置落地：</b>明确鱼种、数量、大小、颜色、游动方向和速度，并参与场景搭建。</li><li><b>AI辅助：</b>快速制作场景概念图、地图点位和玩法/UI效果图，在正式制作前对齐方向。</li></ul><div class="notice">🔒 商业项目受保密协议限制：仅展示可公开的方法、流程和部分推广素材，不展示内部配置、未公开版本和敏感数据。</div></article>
-<article class="card" data-cat="gameplay ai"><div class="kicker">INDIE GAME · COCOS</div><h3>钓鱼消消消｜三消 × 轻经营</h3><p>面向微信/抖音小游戏的独立项目，以约1分钟短局提供即时操作与收益反馈，再通过经营、成长、任务与成就承接长期目标。</p><p><b>核心循环：</b>钓鱼三消→获得鱼类/资源→经营变现→成长升级→再次游玩。</p><ul><li>独立完成核心玩法、成长与收益结构、新手教学、UI/交互和原型开发。</li><li>将经营参数、成长曲线、任务与奖励配置化，便于快速调优。</li><li>使用AI辅助需求拆解、脚本开发、素材方案和测试回归。</li></ul></article>
-<article class="card" data-cat="gameplay commercial"><div class="kicker">LIVE GAME · ACTIVITY DESIGN</div><h3>龙族：卡塞尔之门｜活动 / 系统策划</h3><p>在祖龙科技参与二次元卡牌手游研发，重点负责尼伯龙根系列活动、社团争霸、春节/百日庆等活动内容的设计、落地与验收。</p><ul><li>按“目标→节奏→产出→反馈”拆解活动规则、奖励、商店与参与路径。</li><li>春节活动围绕日活参与、节日沉淀与转化、分层付费承接、社交传播回流拆分不同模块。</li><li>负责PRD、流程图、配置、资源导入、UMG布局、联调测试与上线验收。</li></ul><div class="gallery"><img src="images/祖龙娱乐1.png" alt="龙族：卡塞尔之门项目展示"></div></article>
-<article class="card" data-cat="ai"><div class="kicker">AI GAME EXPERIMENT</div><h3>AI合成游戏｜LLM驱动的玩法实验</h3><p>类 Infinite Craft 的合成探索实验：通过本地 Ollama / LLM 动态生成合成结果，并结合 Stable Diffusion 生成对应视觉内容。</p><ul><li>玩法规则、合成逻辑与探索结构设计。</li><li>Unity拖拽/碰撞/元素生成与历史记录。</li><li>LLM调用与图像生成工作流集成。</li></ul><video src="images/AI合成游戏展示.mp4" controls></video></article>
-</div></section>
-<section id="ai"><div class="kicker">AI × GAME DEVELOPMENT</div><h2>我如何使用 AI</h2><p>AI不是独立标签，而是进入调研、设计、表达、原型和验收流程，帮助更快把抽象想法变成可讨论、可测试、可落地的结果。</p><div class="workflow"><div><b>01 目标/问题</b><br><small>定义玩家问题与版本目标</small></div><div><b>02 竞品/发散</b><br><small>大模型归纳参考与方案空间</small></div><div><b>03 可视化</b><br><small>流程图、概念图、UI/场景效果图</small></div><div><b>04 原型</b><br><small>Cocos/Codex快速验证</small></div><div><b>05 正式研发</b><br><small>需求、配置、资源清单</small></div><div><b>06 实机验收</b><br><small>对照目标持续收敛</small></div></div></section>
-<section id="exp"><div class="kicker">EXPERIENCE</div><h2>经历主线</h2><div class="timeline"><div><b>2026.04—至今｜北京匠心趣游｜游戏策划</b><p>负责休闲玩法调研、试玩原型、新手流程、场景与活动设计；参与大炮、自动钓鱼、海底刺鱼、打靶、翻牌、转盘等项目，并使用Cocos、Codex和AI工具快速验证。</p></div><div><b>2024.06—2025.04｜祖龙科技｜游戏策划</b><p>参与《龙族：卡塞尔之门》活动与系统内容，负责活动规则、数值/掉落、UI/交互、联调与上线验收。</p></div><div><b>2021.01—2024.04｜展心展力｜UGC产品经理</b><p>参与“口袋方舟”UGC编辑器从0到1，重点负责角色/捏脸、模板/预制体、交互社交与创作者体验，并长期研究Roblox等UGC生态。</p></div><div><b>2017.07—2021.01｜文脉互动｜游戏策划</b><p>负责MMORPG成长、系统活动、帮会/世界BOSS等内容，积累长线成长、商业化与多人系统设计经验。</p></div></div></section>
-<section id="about"><div class="kicker">ABOUT</div><h2>关于我</h2><div class="about"><div class="card"><h3>我的工作方法</h3><p>我习惯先判断“玩家为什么愿意做这件事”，再拆成目标、操作、反馈、变化与下一步期待。执行上通过竞品参考、流程图、效果图与可玩原型降低沟通误差，再通过实机验收持续收敛。</p></div><div class="card"><h3>工具与能力</h3><ul><li>Cocos Creator / UE4 / Unity</li><li>TypeScript / JavaScript / Lua（基础）/ Python</li><li>Roblox Studio / UGC平台与模板体系</li><li>大模型 / Codex / Stable Diffusion / Ollama</li><li>Figma / Axure / XMind / Visio</li></ul></div></div></section>
-<section id="contact"><div class="kicker">CONTACT</div><h2>联系方式</h2><div class="card"><ul><li><b>姓名：</b>李鹏程</li><li><b>邮箱：</b><a href="mailto:916646318@qq.com">916646318@qq.com</a></li><li><b>微信：</b>jklf007</li><li><b>GitHub：</b><a href="https://github.com/dasqwd" target="_blank" rel="noopener">github.com/dasqwd</a></li><li><b>所在地：</b>北京</li></ul></div></section>
-<footer>© 2026 李鹏程 · Game Design / UGC / AI Workflow</footer>
-<script src="js/scripts.js"></script><script>document.querySelectorAll('.tabs button').forEach(btn=>btn.addEventListener('click',()=>{document.querySelectorAll('.tabs button').forEach(b=>b.classList.remove('active'));btn.classList.add('active');const f=btn.dataset.filter;document.querySelectorAll('#grid .card').forEach(c=>{const cats=(c.dataset.cat||'').split(' ');c.classList.toggle('hidden',f!=='all'&&!cats.includes(f));});}));</script>
-</body></html>
+    <section id="exp" class="section-shell">
+      <div class="section-head">
+        <div>
+          <div class="kicker">EXPERIENCE</div>
+          <h2>经历主线</h2>
+        </div>
+        <p>从传统游戏策划，到UGC平台，再回到一线休闲玩法与独立开发；核心始终围绕游戏内容如何被设计、生产和迭代。</p>
+      </div>
+
+      <div class="timeline">
+        <div class="timeline-item">
+          <time>2026.04 — 至今</time>
+          <div><b>北京匠心趣游｜游戏策划</b><p>负责休闲玩法调研、试玩原型、新手流程、场景与活动设计；参与大炮、自动钓鱼、海底刺鱼、打靶、翻牌、转盘等项目，并使用Cocos、Codex和AI工具快速验证。</p></div>
+        </div>
+        <div class="timeline-item">
+          <time>2024.06 — 2025.04</time>
+          <div><b>祖龙科技｜游戏策划</b><p>参与《龙族：卡塞尔之门》活动与系统内容，负责活动规则、数值 / 掉落、UI / 交互、联调与上线验收。</p></div>
+        </div>
+        <div class="timeline-item">
+          <time>2021.01 — 2024.04</time>
+          <div><b>展心展力｜UGC产品经理</b><p>参与“口袋方舟”UGC编辑器从0到1，重点负责角色 / 捏脸、模板 / 预制体、交互社交与创作者体验，并长期研究Roblox等UGC生态。</p></div>
+        </div>
+        <div class="timeline-item">
+          <time>2017.07 — 2021.01</time>
+          <div><b>文脉互动｜游戏策划</b><p>负责MMORPG成长、系统活动、帮会 / 世界BOSS等内容，积累长线成长、商业化与多人系统设计经验。</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="about" class="section-shell">
+      <div class="section-head">
+        <div>
+          <div class="kicker">ABOUT</div>
+          <h2>关于我</h2>
+        </div>
+      </div>
+
+      <div class="about-grid">
+        <div class="info-card">
+          <h3>我的工作方法</h3>
+          <p>
+            我习惯先判断“玩家为什么愿意做这件事”，再拆成目标、操作、反馈、变化与下一步期待。
+            执行上通过竞品参考、流程图、效果图与可玩原型降低沟通误差，再通过实机验收持续收敛。
+          </p>
+        </div>
+        <div class="info-card">
+          <h3>工具与能力</h3>
+          <ul>
+            <li>Cocos Creator / UE4 / Unity</li>
+            <li>TypeScript / JavaScript / Lua（基础）/ Python</li>
+            <li>Roblox Studio / UGC平台与模板体系</li>
+            <li>大模型 / Codex / Stable Diffusion / Ollama</li>
+            <li>Figma / Axure / XMind / Visio</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="section-shell">
+      <div class="section-head">
+        <div>
+          <div class="kicker">CONTACT</div>
+          <h2>联系方式</h2>
+        </div>
+      </div>
+      <div class="info-card contact-card">
+        <ul>
+          <li><b>姓名：</b>李鹏程</li>
+          <li><b>邮箱：</b><a href="mailto:916646318@qq.com">916646318@qq.com</a></li>
+          <li><b>微信：</b>jklf007</li>
+          <li><b>GitHub：</b><a href="https://github.com/dasqwd" target="_blank" rel="noopener">github.com/dasqwd</a></li>
+          <li><b>所在地：</b>北京</li>
+        </ul>
+      </div>
+    </section>
+  </main>
+
+  <footer>© 2026 李鹏程 · Game Design / UGC / AI Workflow</footer>
+  <script src="js/site.js"></script>
+</body>
+</html>
